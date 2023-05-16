@@ -2,7 +2,7 @@
   {
     "first_name": "Emma",
     "last_name": "Johnson",
-    "suburb": "Kensington",
+    "suburb": "Paddington",
     "email": "emma.johnson@gmail.com",
     "password": "P@ssw0rd"
   },
@@ -16,77 +16,77 @@
   {
     "first_name": "Sophie",
     "last_name": "Chen",
-    "suburb": "Randwick",
+    "suburb": "Surry Hills",
     "email": "sophiechen@hotmail.com",
     "password": "P@ssword1"
   },
   {
     "first_name": "James",
     "last_name": "Lee",
-    "suburb": "Burwood",
+    "suburb": "Surry Hills",
     "email": "jameslee1234@gmail.com",
     "password": "L3tm3in!"
   },
   {
     "first_name": "Olivia",
     "last_name": "Wang",
-    "suburb": "Ashfield",
+    "suburb": "Manly",
     "email": "oliviawang@outlook.com",
     "password": "P@ssword!"
   },
   {
     "first_name": "Noah",
     "last_name": "Liu",
-    "suburb": "Hurstville",
+    "suburb": "Manly",
     "email": "noahliu5678@gmail.com",
     "password": "P@ssword2"
   },
   {
     "first_name": "Ava",
     "last_name": "Zhang",
-    "suburb": "Chatswood",
+    "suburb": "Bondi",
     "email": "avazhang123@gmail.com",
     "password": "P@ssw0rd!"
   },
   {
     "first_name": "Ethan",
     "last_name": "Garcia",
-    "suburb": "Blacktown",
+    "suburb": "Bondi",
     "email": "ethan.garcia@yahoo.com",
     "password": "S3cur3P@ssw0rd"
   },
   {
     "first_name": "Isabella",
     "last_name": "Nguyen",
-    "suburb": "Bankstown",
+    "suburb": "Newtown",
     "email": "isabella.nguyen@hotmail.com",
     "password": "P@ssword3"
   },
   {
     "first_name": "Liam",
     "last_name": "Tran",
-    "suburb": "Fairfield",
+    "suburb": "Newtown",
     "email": "liamtran5678@gmail.com",
     "password": "P@ssword!"
   },
   {
     "first_name": "Mia",
     "last_name": "Martin",
-    "suburb": "Parramatta",
+    "suburb": "Darlinghurst",
     "email": "miamartin123@gmail.com",
     "password": "P@ssw0rd2"
   },
   {
     "first_name": "Benjamin",
     "last_name": "Gupta",
-    "suburb": "Strathfield",
+    "suburb": "Darlinghurst",
     "email": "benjamin.gupta@yahoo.com",
     "password": "L3tm3in"
   },
   {
     "first_name": "Charlotte",
     "last_name": "Kim",
-    "suburb": "Ryde",
+    "suburb": "Darlinghurst",
     "email": "charlottekim5678@outlook.com",
     "password": "P@ssword1!"
   }
