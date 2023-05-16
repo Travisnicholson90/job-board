@@ -1,14 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// Create our User model
 class User extends Model {}
 
-// Define table columns and configuration
 User.init(
   {
-    // TABLE COLUMN DEFINITIONS
-
     // define an id column
     id: {
       type: DataTypes.INTEGER,
