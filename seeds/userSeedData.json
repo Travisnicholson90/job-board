@@ -1,0 +1,93 @@
+[
+  {
+    "first_name": "Emma",
+    "last_name": "Johnson",
+    "suburb": "Kensington",
+    "email": "emma.johnson@gmail.com",
+    "password": "P@ssw0rd"
+  },
+  {
+    "first_name": "William",
+    "last_name": "Brown",
+    "suburb": "Paddington",
+    "email": "william.brown@yahoo.com",
+    "password": "S3cur3P@ss"
+  },
+  {
+    "first_name": "Sophie",
+    "last_name": "Chen",
+    "suburb": "Randwick",
+    "email": "sophiechen@hotmail.com",
+    "password": "P@ssword1"
+  },
+  {
+    "first_name": "James",
+    "last_name": "Lee",
+    "suburb": "Burwood",
+    "email": "jameslee1234@gmail.com",
+    "password": "L3tm3in!"
+  },
+  {
+    "first_name": "Olivia",
+    "last_name": "Wang",
+    "suburb": "Ashfield",
+    "email": "oliviawang@outlook.com",
+    "password": "P@ssword!"
+  },
+  {
+    "first_name": "Noah",
+    "last_name": "Liu",
+    "suburb": "Hurstville",
+    "email": "noahliu5678@gmail.com",
+    "password": "P@ssword2"
+  },
+  {
+    "first_name": "Ava",
+    "last_name": "Zhang",
+    "suburb": "Chatswood",
+    "email": "avazhang123@gmail.com",
+    "password": "P@ssw0rd!"
+  },
+  {
+    "first_name": "Ethan",
+    "last_name": "Garcia",
+    "suburb": "Blacktown",
+    "email": "ethan.garcia@yahoo.com",
+    "password": "S3cur3P@ssw0rd"
+  },
+  {
+    "first_name": "Isabella",
+    "last_name": "Nguyen",
+    "suburb": "Bankstown",
+    "email": "isabella.nguyen@hotmail.com",
+    "password": "P@ssword3"
+  },
+  {
+    "first_name": "Liam",
+    "last_name": "Tran",
+    "suburb": "Fairfield",
+    "email": "liamtran5678@gmail.com",
+    "password": "P@ssword!"
+  },
+  {
+    "first_name": "Mia",
+    "last_name": "Martin",
+    "suburb": "Parramatta",
+    "email": "miamartin123@gmail.com",
+    "password": "P@ssw0rd2"
+  },
+  {
+    "first_name": "Benjamin",
+    "last_name": "Gupta",
+    "suburb": "Strathfield",
+    "email": "benjamin.gupta@yahoo.com",
+    "password": "L3tm3in"
+  },
+  {
+    "first_name": "Charlotte",
+    "last_name": "Kim",
+    "suburb": "Ryde",
+    "email": "charlottekim5678@outlook.com",
+    "password": "P@ssword1!"
+  }
+]
