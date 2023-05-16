@@ -4,9 +4,10 @@ const { JobCategory, Job } = require('../../models');
 // show page with all categories... unnecessary if not on own page... or will it get something to fill a handlebars placeholder?
 router.get('/', async (req, res) => {
     try {
-        res.render('categories')
+        res.render('categories');
     } catch (err) {
-        res.status(500).json({ message: 'Cannot retrieve categories' })
+        console.error(err);
+        res.status(500).json({ message: 'Cannot retrieve categories' });
     }
 });
 
