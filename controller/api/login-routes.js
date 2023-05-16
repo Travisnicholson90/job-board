@@ -21,10 +21,11 @@ router.post('/', async (req, res) => {
         const user = await User.findOne({
             where: { username },
         });
+        //error handling for wrong password
         if (!user || !user.validPassword(password)) {
             res.status(401).json({ message: 'Invalid username or password' });
             return;
-        }
+        };
         res.status(200).json({ message: 'Login successful', user });
     } catch (err) {
         res.status(400).json(err);
@@ -38,19 +39,21 @@ router.put('/:id', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findByPk(id);
 
+    // error handling for non-existent user
     if (!user) {
         res.status(401).json({ message: 'User not found' });
         return;
     }
-
+    //ensures user has a username and password
     if (username) {
         user.username = username;
     }
-
+    
     if (password) {
         user.password = password;
     }
 
+    // saves the user to User table
     await user.save();
 
     res.status(200).json({ message: 'Login successful', user });
@@ -66,7 +69,7 @@ router.delete('/:id', async (req, res) => {
                 id: req.params.id,
             },
         });
-        res.status(200).json({ message: 'User deleted' });
+        res.status(200).json({ message: 'User deleted', userData });
     } catch (err) {
         res.status(400).json(err);
     }

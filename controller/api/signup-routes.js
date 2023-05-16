@@ -11,10 +11,10 @@ router.get('/', async (req, res) => {
 });
 
 //create new user
-// does this need more?... e.g. what to do with data recieved, ensure username uniqueness, etc.
+// does this need more?... e.g. what to do with data recieved, etc.
 router.post('/', async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password } = req.body; //may have to change to first_name, last_name, suburb, email, password...
 
     const existingUser = await User.findOne({ where: { username } });
     if (existingUser) {
@@ -32,3 +32,5 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
