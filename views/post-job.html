@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,48 +36,60 @@
             <li>Sign Up</li>
             <li>Categories</li>
            </ul>
-        </nav>
-        <div class="flex gap-4 ml-auto px-6 items-center">
-            <img class="w-8" src="../job-board/client/assets/images/twitter.svg" alt="twitter-icon">
-            <img class="w-8" src="../job-board/client/assets/images/instagram.svg" alt="instagram-icon">
-            <img class="w-8" src="../job-board/client/assets/images/facebook.svg" alt="facebook-icon">
-        </div>        
+        </nav>      
     </header>
-
     <main>
-        <div>
-            <form action="">
-                <div>
-                    <label for="first-name">First Name</label>
-                    <input id="first-name" type="text" name="first-name">
+      
+ 
+        <form class="flex mx-auto w-10/12" action="">
+            <div class="flex flex-col w-96 mx-auto">
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3"  id="first-name" type="text" name="first-name">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="last-name">Last Name</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="last-name" type="text" name="last-name">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="email">Email</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="email" type="text" name="email">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="contact">Contact Number</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="contact-number" type="text" name="contact-number">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="location">Enter your Suburb</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="location" type="text">
+                    </div>
+                
                 </div>
-                <div>
-                    <label for="last-name">Last Name</label>
-                    <input id="last-name" type="text" name="last-name">
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input id="email" type="text" name="email">
-                </div>
-                <div>
-                    <label for="contact">Contact Number</label>
-                    <input id="contact-number" type="text" name="contact-number">
-                </div>
-                <div>
-                    <label for=""></label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for=""></label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for=""></label>
-                    <input type="text">
+                <div class="flex flex-col w-96 mx-auto">
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="job-name">Job Name</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="job-name" type="text" name="job-name">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="job-description">Job Description</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="job-description" type="text" name="job-description">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="date">Date</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="date" type="date" name="date">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="Price">Price</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="price" type="text" name="Price">
+                    </div>
+                    <div class="flex flex-col justify-start">
+                        <label class="text-textBlack text-3xl py-1" for="Est Duration">Est Duration</label>
+                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="duration" type="text" name="Est Duration">
+                    </div>
+                    <button class="flex w-52 bg-black rounded-2xl py-2 text-white items-center justify-center my-3 hover:bg-emerald-950" type="submit" role="button">CREATE JOB</button>
                 </div>
             </form>
-        </div>
-    </main>
+        </main>
 
     <script src="../public/js/index.js"></script>
 </body>

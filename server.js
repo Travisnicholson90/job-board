@@ -1,10 +1,13 @@
 const express = require("express");
 const routes = require("./routes");
 const sequelize = require("./config/connection");
+const expressHbs = require("express-handlebars");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+app.engine("hbs", expressHbs({ layoutsDir: "views/layouts/", defaultLayout: "main-layout", extname: "hbs" }));
+app.set("view engine", "handlebars");
+app.set("views", "views");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
