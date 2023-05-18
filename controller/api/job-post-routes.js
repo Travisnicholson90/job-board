@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Job } = require('../../models');
 
+// posting new job not working. doesn't like job-category-id and job-user-id
+
 router.post('/', async (req, res) => {
     try {
       const { job_name, job_description, job_suburb, job_date, job_time, job_duration, job_price, job_status, job_category_id } = req.body;

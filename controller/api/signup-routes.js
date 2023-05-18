@@ -2,6 +2,8 @@ const router = require("express").Router();
 var bcrypt = require("bcryptjs");
 const { User } = require("../../models");
 
+// getting signup page not working, express module not found...
+
 router.get("/", async (req, res) => {
   try {
     // Render the sign-up page
@@ -12,10 +14,9 @@ router.get("/", async (req, res) => {
 });
 
 //create new user
-// does this need more?... e.g. what to do with data recieved, etc.
 router.post("/", async (req, res) => {
   try {
-    const { first_name, last_name, suburb, email, password } = req.body; //may have to change to first_name, last_name, suburb, email, password...
+    const { first_name, last_name, suburb, email, password } = req.body;
 
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {

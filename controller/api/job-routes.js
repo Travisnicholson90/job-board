@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Job } = require('../../models');
 
+// get all job or by id not working. missing express module...
+
 // get and render 20 jobs
 router.get('/', async (req, res) => {
   try {

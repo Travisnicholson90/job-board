@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const { JobCategory, Job } = require("../../models");
 
-// show page with all categories... unnecessary if not on own page... or will it get something to fill a handlebars placeholder?
+//get category by id not working... wrong route.
+
+// get all categories
 router.get("/", async (req, res) => {
   try {
     // res.render('categories');
