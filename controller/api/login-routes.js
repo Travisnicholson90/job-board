@@ -17,16 +17,18 @@ router.get("/", async (req, res) => {
 // login to account
 router.post("/", async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     // user authentication logic
     const user = await User.findOne({
-      where: { username },
+      where: { email },
     });
+
     // checking the password
     const validPassword = await bcrypt.compare(password, user.password);
+
     //error handling for wrong password
     if (!user || !validPassword) {
-      res.status(401).json({ message: "Invalid username or password" });
+      res.status(401).json({ message: "Invalid user or password" });
       return;
     }
     res.status(200).json({ message: "Login successful", user });
@@ -39,7 +41,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const { username, password } = req.body;
+    const { first_name, last_name, suburb, email, password } = req.body;
     const user = await User.findByPk(id);
 
     // error handling for non-existent user
@@ -48,11 +50,8 @@ router.put("/:id", async (req, res) => {
       return;
     }
     //ensures user has a username and password
-    if (username) {
-      user.username = username;
-    }
-
-    if (password) {
+    if (email && password) {
+      user.email = email;
       user.password = password;
     }
 
