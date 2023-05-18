@@ -4,6 +4,9 @@ const { User } = require("../../models");
 
 // viewing of the seeded userData, etc. can be done in mysql workbench... or we can create routes for it
 
+//logging in user not working, invalid user...
+// get login page not working, missing express module...
+
 // show login page
 router.get("/", async (req, res) => {
   try {
@@ -28,7 +31,7 @@ router.post("/", async (req, res) => {
 
     //error handling for wrong password
     if (!user || !validPassword) {
-      res.status(401).json({ message: "Invalid user or password" });
+      res.status(401).json({ message: "Invalid user or password" + email + password + user + validPassword });
       return;
     }
     res.status(200).json({ message: "Login successful", user });
@@ -49,8 +52,11 @@ router.put("/:id", async (req, res) => {
       res.status(401).json({ message: "User not found" });
       return;
     }
-    //ensures user has a username and password
+    //updates these fields of user.
     if (email && password) {
+      user.first_name = first_name;
+      user.last_name = last_name;
+      user.suburb = suburb;
       user.email = email;
       user.password = password;
     }
