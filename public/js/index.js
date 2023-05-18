@@ -12,8 +12,8 @@ const postJobForm = async (event) => {
     const jobName = $("#job-name").val();
     const jobDescription = $("#job-description").val();
     const date = $("#date").val();
-    const price = $("#price").val(); // Corrected ID: "Price" instead of "price"
-    const duration = $("#duration").val(); // Corrected ID: "Est Duration" instead of "duration"
+    const price = $("#price").val(); 
+    const duration = $("#duration").val(); 
 
     if (firstName === '') {
         $("#first-error").text("Please enter your first name!")
@@ -134,23 +134,22 @@ const signUpForm = async (event) => {
       password: passwordSignUp,
     };
   
-    // const response = await fetch("/api/users", {
-    //   method: "POST",
-    //   body: JSON.stringify(userData),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+    const response = await fetch("/api/users", {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   
-    // if (response.ok) {
-    //   alert("Your account has been created!");
-    //   console.log("account created");
-    // } else {
-    //   alert("Failed to create account.");
-    //   console.log("account not created");
-    // }
+    if (response.ok) {
+      alert("Your account has been created!");
+      console.log("account created");
+    } else {
+      alert("Failed to create account.");
+      console.log("account not created");
+    }
   };
   
-  // Register the signUpForm function as the submit event handler for the form
   $("#sign-up-form").submit(signUpForm);
   
