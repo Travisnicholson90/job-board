@@ -23,15 +23,19 @@ router.post("/", async (req, res) => {
     const { email, password } = req.body;
     // user authentication logic
     const user = await User.findOne({
-      where: { email },
+      where: { email: email },
     });
+
 
     // checking the password
     const validPassword = await bcrypt.compare(password, user.password);
 
     //error handling for wrong password
     if (!user || !validPassword) {
-      res.status(401).json({ message: "Invalid user or password" + email + password + user + validPassword });
+      res.status(401).json({
+        message:
+          "Invalid user or password" + email + password + user + validPassword,
+      });
       return;
     }
     res.status(200).json({ message: "Login successful", user });
