@@ -26,7 +26,6 @@ router.post("/", async (req, res) => {
       where: { email: email },
     });
 
-
     // checking the password
     const validPassword = await bcrypt.compare(password, user.password);
 
@@ -56,12 +55,20 @@ router.put("/:id", async (req, res) => {
       res.status(401).json({ message: "User not found" });
       return;
     }
-    //updates these fields of user.
-    if (email && password) {
+    // Updates individual fields of the user if they exist in the request body
+    if (first_name) {
       user.first_name = first_name;
+    }
+    if (last_name) {
       user.last_name = last_name;
+    }
+    if (suburb) {
       user.suburb = suburb;
+    }
+    if (email) {
       user.email = email;
+    }
+    if (password) {
       user.password = password;
     }
 
