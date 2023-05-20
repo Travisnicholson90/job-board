@@ -1,5 +1,4 @@
 const router = require("express").Router();
-var bcrypt = require("bcryptjs");
 const { User } = require("../../models");
 
 //create new user
@@ -11,10 +10,6 @@ router.post("/", async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
-
-    // hash a password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
 
     // create a new user
     const newUser = await User.create({
