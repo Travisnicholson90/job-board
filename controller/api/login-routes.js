@@ -22,7 +22,17 @@ router.post("/", async (req, res) => {
       });
       return;
     }
-    res.status(200).json({ message: "Login successful", user });
+
+    // set session variables
+    req.session.save(() => {
+      // set the 'loggedIn' variable to true
+      req.session.loggedIn = true;
+      // set the 'user_id' variable to the 'id' of the newly created user
+      req.session.user_id = user.id;
+      // set the 'username' variable to the 'username' of the newly created user
+      req.session.username = user.username;
+      res.status(200).json({ message: "Login successful", user });
+    });
   } catch (err) {
     res.status(400).json(err);
   }

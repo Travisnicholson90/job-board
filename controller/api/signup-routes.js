@@ -25,9 +25,18 @@ router.post("/", async (req, res) => {
       password: hashedPassword,
     });
 
-    res
-      .status(200)
-      .json({ message: "Created user successfully!", user: newUser });
+    // set session variables
+    req.session.save(() => {
+      // set the 'loggedIn' variable to true
+      req.session.loggedIn = true;
+      // set the 'user_id' variable to the 'id' of the newly created user
+      req.session.user_id = newUser.id;
+      // set the 'username' variable to the 'username' of the newly created user
+      req.session.username = newUser.username;
+      res
+        .status(200)
+        .json({ message: "Created user successfully!", user: newUser });
+    });
   } catch (err) {
     if (err.name === "SequelizeValidationError") {
       const validationErrors = err.errors.map((error) => error.message);
