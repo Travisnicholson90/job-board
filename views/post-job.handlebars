@@ -1,5 +1,5 @@
-
-<form id="post-job-form" class="flex flex-col lg:flex-row mx-auto w-8/12" action="">
+{{#if loggedIn}}
+    <form id="post-job-form" class="flex flex-col lg:flex-row mx-auto w-8/12" action="">
     <div class="flex flex-col w-96 mx-auto px-2">
             <div class="flex flex-col justify-start">
                 <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
@@ -57,3 +57,7 @@
             <button class="flex w-52 bg-black rounded-2xl py-2 text-white items-center justify-center my-3 hover:bg-emerald-950" type="submit" role="button">CREATE JOB</button>
         </div>
     </form>
+
+{{else}}
+    <h2>Please < href="/login">login</a> to view and post job adds.</h2>
+{{/if}}
