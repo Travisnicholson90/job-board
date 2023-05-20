@@ -51,6 +51,7 @@ Job.init(
     job_status: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "Open",
     },
     // define a job_category_id column
     job_category_id: {
