@@ -30,15 +30,6 @@ router.post("/", async (req, res) => {
       job_user_id,
     });
 
-    // // job_category_id is a little confusing...
-    // if (job_category_id & job_category_id.length > 0) {
-    //   const categories = await JobCategory.findAll({
-    //     where: {
-    //       id: categoryIds,
-    //     },
-    //   });
-    // }
-
     res.status(200).json(newJob);
   } catch (err) {
     console.log(err);
@@ -62,7 +53,8 @@ router.put("/:id", async (req, res) => {
       job_status,
     } = req.body;
 
-    const updatedJob = await Job.update(
+    // Perform the update operation and store the updated row in variable
+    const updatedRowCount = await Job.update(
       {
         job_name,
         job_description,
@@ -79,6 +71,16 @@ router.put("/:id", async (req, res) => {
         },
       }
     );
+
+    // Check if any rows were updated
+    if (updatedRowCount[0] === 0) {
+      res.status(404).json({ message: "Job not found" });
+      return;
+    }
+
+    // Fetch the updated job
+    const updatedJob = await Job.findByPk(id);
+
     res.status(200).json(updatedJob);
   } catch (err) {
     console.error(err);
