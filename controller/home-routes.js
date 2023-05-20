@@ -7,12 +7,38 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // res.render('categories');
-    const categories = await JobCategory.findAll();
     res.sendFile(path.join(__dirname, "../views/home.html"));
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Cannot retrieve categories" });
+    res.status(500).json(err);
+  }
+});
+
+// Job-board route
+router.get("/job-board", withAuth, async (req, res) => {
+  try {
+    // Get 20 latest jobs to display on the job-board page
+    const jobData = await Job.findAll({
+      limit: 20,
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: User,
+          attributes: ["first_name", "last_name", "suburb", "email"],
+        },
+        {
+          model: JobCategory,
+          attributes: ["category_name"],
+        },
+      ],
+    });
+    // Serialize data so the template is readable
+    const jobs = jobData.map((job) => job.get({ plain: true }));
+    // Pass serialized data into Handlebars.js template
+    res.render("job-board", jobs);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
   }
 });
 
