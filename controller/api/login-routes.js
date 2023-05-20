@@ -89,4 +89,17 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// Logout route
+router.post("/logout", (req, res) => {
+  // When the user logs out, the session is destroyed
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    // If there is no session, then the user is not logged in, so we end the request
+    res.status(404).end();
+  }
+});
+
 module.exports = router;
