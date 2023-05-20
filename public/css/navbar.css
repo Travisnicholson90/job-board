@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Chivo:wght@100;200;300&family=Exo:wght@600&family=Gajraj+One&family=Inter:wght@400;700;800&family=Josefin+Sans&family=Kumbh+Sans:wght@400;700&family=League+Spartan:wght@700&family=Libre+Franklin:wght@300;600;700&family=Manrope:wght@500;700&family=Overpass:wght@400;700&family=Plus+Jakarta+Sans:wght@500;800&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,700&family=Roboto&family=Sigmar&family=Space+Grotesk:wght@500&family=Space+Mono:wght@700&display=swap');
+
+.fontFamily {
+    font-family: 'Alfa Slab One';
+}
+
+.tooltip {
+    position: relative
+}
+
+.tooltip:before {
+    content: 'Create Job';
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    width: max-content;
+    color: transparent;
+    font-weight: bold;
+}
+
+.tooltip:hover .tooltip:before {
+    content: 'Create Job';
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    width: max-content;
+    color: #0a65fc;
+    font-weight: bold;
+} 
+
 .navbar-transition {
     transition: transform 0.3s ease-out;
 }
