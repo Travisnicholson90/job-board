@@ -37,4 +37,11 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
+// Post a job route
+
+router.get("/post-job", async (req, res) => {
+  // Render the post-job page
+  res.render("post-job");
+});
+
 module.exports = router;
