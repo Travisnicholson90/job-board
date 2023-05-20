@@ -2,21 +2,6 @@ const router = require("express").Router();
 var bcrypt = require("bcryptjs");
 const { User } = require("../../models");
 
-// viewing of the seeded userData, etc. can be done in mysql workbench... or we can create routes for it
-
-//logging in user not working, invalid user...
-// get login page not working, missing express module...
-
-// show login page
-router.get("/", async (req, res) => {
-  try {
-    // Render the login-in page
-    res.render("login");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // login to account
 router.post("/", async (req, res) => {
   try {
