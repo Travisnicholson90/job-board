@@ -1,63 +1,118 @@
-{{#if loggedIn}}
-    <form id="post-job-form" class="flex flex-col lg:flex-row mx-auto w-8/12" action="">
-    <div class="flex flex-col w-96 mx-auto px-2">
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3"  id="first-name" type="text" name="first-name">
-                <p id="first-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="last-name">Last Name</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="last-name" type="text" name="last-name">
-                <p id="lastname-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="email">Email</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="email" type="text" name="email">
-                <p id="email-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="contact">Contact Number</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="contact-number" type="text" name="contact-number">
-                <p id="number-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="location">Enter your Suburb</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="suburb" type="text">
-                <p id="suburb-error"></p>
-            </div>
-        </div>
+<form
+  id="post-job-form"
+  class="flex flex-col lg:flex-row mx-auto w-8/12"
+  action=""
+>
+  <div class="flex flex-col w-96 mx-auto px-2">
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="first-name"
+        type="text"
+        name="first-name"
+      />
+      <p id="first-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="last-name">Last Name</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="last-name"
+        type="text"
+        name="last-name"
+      />
+      <p id="lastname-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="email">Email</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="email"
+        type="text"
+        name="email"
+      />
+      <p id="email-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="contact">Contact Number</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="contact-number"
+        type="text"
+        name="contact-number"
+      />
+      <p id="number-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="location">Enter your
+        Suburb</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="suburb"
+        type="text"
+      />
+      <p id="suburb-error"></p>
+    </div>
+  </div>
 
-        <div class="flex flex-col w-96 mx-auto px-2">
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="job-name">Job Name</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="job-name" type="text" name="job-name">
-                <p id="job-name-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="job-description">Job Description</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="job-description" type="text" name="job-description">
-                <p id="description-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="date">Date</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="date" type="date" name="date">
-                <p id="date-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="Price">Price</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="price" type="text" name="Price">
-                <p id="price-error"></p>
-            </div>
-            <div class="flex flex-col justify-start">
-                <label class="text-textBlack text-3xl py-1" for="Est Duration">Est Duration</label>
-                <input class="w-full rounded-lg p-1 outline-none ps-3" id="duration" type="text" name="Est Duration">
-                <p id="duration-error"></p>
-            </div>
-            <button class="flex w-52 bg-black rounded-2xl py-2 text-white items-center justify-center my-3 hover:bg-emerald-950" type="submit" role="button">CREATE JOB</button>
-        </div>
-    </form>
-
-{{else}}
-    <h2>Please < href="/login">login</a> to view and post job adds.</h2>
-{{/if}}
+  <div class="flex flex-col w-96 mx-auto px-2">
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="job-name">Job Name</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="job-name"
+        type="text"
+        name="job-name"
+      />
+      <p id="job-name-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="job-description">Job
+        Description</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="job-description"
+        type="text"
+        name="job-description"
+      />
+      <p id="description-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="date">Date</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="date"
+        type="date"
+        name="date"
+      />
+      <p id="date-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="Price">Price</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="price"
+        type="text"
+        name="Price"
+      />
+      <p id="price-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="Est Duration">Est
+        Duration</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="duration"
+        type="text"
+        name="Est Duration"
+      />
+      <p id="duration-error"></p>
+    </div>
+    <button
+      class="flex w-52 bg-black rounded-2xl py-2 text-white items-center justify-center my-3 hover:bg-emerald-950"
+      type="submit"
+      role="button"
+    >CREATE JOB</button>
+  </div>
+</form>
