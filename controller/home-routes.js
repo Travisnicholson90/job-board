@@ -1,12 +1,9 @@
 const router = require("express").Router();
 const path = require("path");
-// const loginRoutes = require('./login-routes.js');
-// const categoryRoutes = require('./job-category-routes.js');
-// const listingRoutes = require('./job-routes.js');
-// const signupRoutes = require('./signup-routes');
-// const jobPostRoutes = require('./job-post-routes');
 
 const { Job, JobCategory, User } = require("../models");
+
+const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -43,7 +40,7 @@ router.get("/signup", async (req, res) => {
 });
 
 // Post a job route
-router.get("/post-job", async (req, res) => {
+router.get("/post-job", withAuth, async (req, res) => {
   try {
     // Render the post-job page
     res.render("post-job", { loggedIn: req.session.loggedIn });
@@ -54,7 +51,7 @@ router.get("/post-job", async (req, res) => {
 });
 
 // Job categories route
-router.get("/categories", async (req, res) => {
+router.get("/categories", withAuth, async (req, res) => {
   try {
     const categories = await JobCategory.findAll();
     res.render("categories", { categories, loggedIn: req.session.loggedIn });
