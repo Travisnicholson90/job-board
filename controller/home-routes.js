@@ -19,4 +19,12 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get
+
+// Signup route
+router.get("/signup", async (req, res) => {
+  // Render the sign-up page
+  res.render("signup");
+});
+
 module.exports = router;

@@ -2,17 +2,6 @@ const router = require("express").Router();
 var bcrypt = require("bcryptjs");
 const { User } = require("../../models");
 
-// getting signup page not working, express module not found...
-
-router.get("/", async (req, res) => {
-  try {
-    // Render the sign-up page
-    res.render("signup");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 //create new user
 router.post("/", async (req, res) => {
   try {
