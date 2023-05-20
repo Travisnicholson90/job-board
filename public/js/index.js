@@ -1,3 +1,10 @@
+const navToggle = document.querySelector('#toggle');
+const navbar = document.querySelector('#navbar');
+
+navToggle.addEventListener('click', () => {
+    navbar.classList.toggle('navbar-show');
+});
+
 const postJobForm = async (event) => {
     event.preventDefault();
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/navbar.css">
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                bg: '#3AAFA9',
+                bgWhite: '#F7F7F7',
+                textWhite: '#FEFFFF',
+                textBlack: '#17252A',
+                textGreen: '#2B7A78',
+                textLight: '#DEF2F1'
+              }
+            }
+          }
+        }
+    </script>
+<title>Job Board</title>
+</head>
+<body class="bg-gray-200">
+    <header class="flex flex-col relative">
+        <div class="flex bg-indigo-950 items-center">
+            <img id="toggle" class="flex ms-8 w-14 py-4 hover:cursor-pointer lg:hidden" src="../public/assets/images/hamburger-white.svg" alt="nav-toggle">
+        </div>
+        <nav id="navbar" class="z-50 flex absolute top-20 right-0 p-2 flex-col bg-indigo-950 navbar-hidden navbar-transition navbar-show lg:top-0 left-0 right-0">
+            <ul class="flex flex-col justify-end gap-8 p-4 text-3xl text-white lg:flex-row justify-between">
+                <li>
+                    <a href="/job-board" class="hover:text-indigo-300 cursor-pointer">Jobs Board</a>
+                </li>
+                <li>
+                    <a href="/post-job" class="hover:text-indigo-300 cursor-pointer">Post Job</a>
+                </li>
+                <li>
+                    <a href="/categories" class="hover:text-indigo-300 cursor-pointer">Job Categories</a>
+                </li>
+                <li>
+                    <a href="/signup" class="hover:text-indigo-300 cursor-pointer">Sign Up</a>
+                </li>
+                <li>
+                    <a href="/login" class="hover:text-indigo-300 cursor-pointer">Login</a>
+                </li>
+                <li>
+                    <a href="/announcements" class="hover:text-indigo-300 cursor-pointer">Announcement</a>
+                </li>
+                <li>
+                    <a href="/inquiries" class="hover:text-indigo-300 cursor-pointer">Inquiries</a>
+                </li>
+                <li>
+                    <a href="/insurance" class="hover:text-indigo-300 cursor-pointer">Insurance & Liability</a>
+                </li>
+                <li>
+                    <a href="/payments" class="hover:text-indigo-300 cursor-pointer">Payment Info</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <div class="relative grid grid-cols-1 w-full lg:place-items-center">
+        <img class="object-cover bg-blend-lighten aspect-auto w-full h-screen opacity-70" src="../public/assets/images/town-square.avif" alt="town-square">
+        <div class="absolute flex flex-col gap-5 mt-32 justify-self-center">
+            <h1 class="text-7xl font-bold text-white w-96 leading-normal">Local Jobs Board</h1>
+            <a href="/jobs">
+                <button class="flex justify-self-start w-32 p-3 bg-indigo-950 rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-800 duration-200">Browse Jobs</button>
+            </a>
+        </div>
+    </div>      
+  </main>
+    <script src="../public/js/index.js"></script>
+</body>
+</html>
