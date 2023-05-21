@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
       last_name,
       suburb,
       email,
-      password: hashedPassword,
+      password,
     });
 
     // set session variables
