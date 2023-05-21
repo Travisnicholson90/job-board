@@ -13,7 +13,6 @@ router.post("/", async (req, res) => {
       job_time,
       job_duration,
       job_price,
-      job_status,
       job_category_id,
       job_user_id,
     } = req.body;
@@ -25,7 +24,6 @@ router.post("/", async (req, res) => {
       job_time,
       job_duration,
       job_price,
-      job_status,
       job_category_id,
       job_user_id,
     });
@@ -50,7 +48,6 @@ router.put("/:id", async (req, res) => {
       job_time,
       job_duration,
       job_price,
-      job_status,
     } = req.body;
 
     // Perform the update operation and store the updated row in variable
@@ -63,7 +60,6 @@ router.put("/:id", async (req, res) => {
         job_time,
         job_duration,
         job_price,
-        job_status,
       },
       {
         where: {
