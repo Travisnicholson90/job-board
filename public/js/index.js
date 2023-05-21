@@ -84,7 +84,7 @@ const postJobForm = async (event) => {
 
     console.log(data);
 
-    const response = await fetch("/api/jobs", {
+    const response = await fetch("/api/post-jobs", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -129,7 +129,7 @@ const signUpForm = async (event) => {
         .addClass("text-red-700 italic text-sm");
     } 
     
-    if ( passwordSignUp.length === '' || passwordSignUp.length < 6) {
+    if ( passwordSignUp === '' || passwordSignUp < 6) {
         $("#password-error").text("Please enter a password with at least 6 characters!")
         .addClass("text-red-700 italic text-sm");
     } 
@@ -141,7 +141,7 @@ const signUpForm = async (event) => {
       password: passwordSignUp,
     };
   
-    const response = await fetch("/api/users", {
+    const response = await fetch("/api/signup", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {
@@ -160,3 +160,40 @@ const signUpForm = async (event) => {
   
   $("#sign-up-form").submit(signUpForm);
   
+
+  const loginForm = async (event) => {
+    event.preventDefault()
+
+    const emailLogin = $('#login-email').val();
+    const passwordLogin = $('#login-password').val();
+
+    if (emailLogin === '') {
+        $("#login-email-error").text("Ooos, Please fill enter your email!")
+        .addClass("text-red-700 italic text-sm");
+    }
+
+    if (passwordLogin === '') {
+        $("#login-password-error").text("Ooos, Please enter your password!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    
+    const loginData = {
+        email: emailLogin,
+        password: passwordLogin
+    }
+    
+    const response = await fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify(loginData),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    
+    if (!response.ok) {
+        alert("Cannot Login at this time.");
+        console.log("login error");
+    }; 
+};
+    
+  $('#login-form').submit(loginForm);

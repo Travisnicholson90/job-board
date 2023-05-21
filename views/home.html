@@ -46,50 +46,54 @@
             <nav id="navbar" class="z-50 flex absolute top-20 right-0 p-2 flex-col bg-indigo-950 navbar-hidden navbar-transition navbar-show lg:top-0 left-0 right-0">
             <ul class="flex flex-col justify-end gap-8 p-4 text-2xl text-white lg:flex-row justify-between">
                 <li>
-                    <a href="/job-board" class="hover:text-indigo-300 cursor-pointer">Jobs Board</a>
+                    <a href="/job-board" class="hover:text-bgBlue cursor-pointer">Jobs Board</a>
                 </li>
                 <li>
-                    <a href="/post-job" class="hover:text-indigo-300 cursor-pointer">Post Job</a>
+                    <a href="/post-job" class="hover:text-bgBlue cursor-pointer">Post Job</a>
                 </li>
                 <li>
-                    <a href="/categories" class="hover:text-indigo-300 cursor-pointer">Job Categories</a>
+                    <a href="/categories" class="hover:text-bgBlue cursor-pointer">Job Categories</a>
                 </li>
                 <li>
-                    <a href="/signup" class="hover:text-indigo-300 cursor-pointer">Sign Up</a>
+                    <a href="/signup" class="hover:text-bgBlue cursor-pointer">Sign Up</a>
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-indigo-300 cursor-pointer">Login</a>
+                    <a href="/login" class="hover:text-bgBlue cursor-pointer">Login</a>
                 </li>
                 <li>
-                    <a href="/announcements" class="hover:text-indigo-300 cursor-pointer">Announcement</a>
+                    <a href="/announcements" class="hover:text-bgBlue cursor-pointer">Announcement</a>
                 </li>
                 <li>
-                    <a href="/inquiries" class="hover:text-indigo-300 cursor-pointer">Inquiries</a>
+                    <a href="/inquiries" class="hover:text-bgBlue cursor-pointer">Inquiries</a>
                 </li>
                 <li>
-                    <a href="/insurance" class="hover:text-indigo-300 cursor-pointer">Insurance & Liability</a>
+                    <a href="/insurance" class="hover:text-bgBlue cursor-pointer">Insurance & Liability</a>
                 </li>
                 <li class="pb-10">
-                    <a href="/payments" class="hover:text-indigo-300 cursor-pointer">Payment Info</a>
+                    <a href="/payments" class="hover:text-bgBlue cursor-pointer">Payment Info</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
-    <div class="grid grid-cols-1 py-5 items-center">
+    <div class="grid grid-cols-1 items-center">
         <div class="flex flex-col gap-5 mt-10 p-10 items-center">
-            <h1 class="text-7xl font-extrabold -skew-x-2 -skew-y-6 text-bgDarkBlue w-96 leading-normal">Local Jobs Board</h1>
+            <h1 class="text-7xl font-extrabold -skew-x-2 -skew-y-6 text-bgDarkBlue w-96 leading-normal pt-5 lg:pt-16">Local Jobs Board</h1>
             <p class="max-w-lg">Get more done with help from Locals in your area.
             Locals Jobs is your platform to Post jobs or to find jobs. From cleaning to construction, Local Jobs is your one stop shop.</p>
             <a href="/jobs">
-                <button class="flex justify-self-start w-32 py-3 p-3 bg-indigo-950 rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">Browse Jobs</button>
+                <button class="flex justify-self-start w-32 py-3 p-3 bg-bgBlue rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">Browse Jobs</button>
             </a>
         </div>
     </div>
-    <div class="grid grid-cols-1 p-3 w-full items-center py-5">
+    <div class="grid grid-cols-1 px-3 w-full items-center">
         <div class="grid grid-cols-1 items-center justify-center lg:grid-cols-2 lg:items-center lg:justify-center">
-            <div class="grid grid-cols-1 items-center justify-center">
-                <h2 class="items-center justify-center px-5 font-bold lg:text-2xl lg:px-0">Need a Job Done. Create your Job and Pick the right person for the Task</h2>
+            <div class="grid grid-cols-1 items-center justify-center lg:justify-start">
+                <h2 class="items-center pb-3 justify-center px-5 font-bold text-4xl lg:text-3xl lg:px-5">Need a Job Done.
+                </h2>
+                    <p class="text-xl px-5"> 
+                    Create your Job and Pick the right person for the Task
+                </p>
                 <div class="grid items-center justify-center py-5 px-auto">
                     <a href="/post-job">
                         <button class="bg-bgBlue py-3 w-96 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">
@@ -105,14 +109,14 @@
                     </a>
                 </div>
             </div>
-            <div class="grid grid-cols-1 items-center justify-center py-5 lg:py-10 lg:items-center">
+            <div class="grid grid-cols-1 items-center justify-center py-5 lg:py-10 lg:items-center lg:justify-center">
                 <h2 class="p-5 text-4xl font-bold items-center justify-center">How Does Local Jobs Work</h2>
-                <div class="grid grid-cols-1 gap-3 justify-center items-center ms-5">
+                <div class="grid grid-cols-1 w-11/12 gap-3 justify-center items-center ms-5 lg:items-center lg:justify-center">
                     <p class="ms-2"><span class="border-2 border-bgBlue bg-bgBlue text-white px-2 py-1 aspect-square rounded-full me-3">1</span>Login or Sign Up</p>
                     <p class="ms-2"><span class="border-2 border-bgBlue bg-bgBlue text-white px-2 py-1 aspect-square rounded-full me-3">2</span>Fill out our post job form</p>
                     <p class="ms-2"><span class="border-2 border-bgBlue bg-bgBlue text-white px-2 py-1 aspect-square rounded-full me-3">3</span>Choose from 1000s of Local Workers</p> 
                 </div>
-                <div class="flex justify-self-center mx-auto py-8 lg:items-start">
+                <div class="flex justify-center items-center py-8 lg:items-center">
                     <a href="/post-job">
                         <button class="bg-bgBlue py-3 w-96 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200"">
                             Post your Job to Local workers
@@ -122,9 +126,9 @@
             </div>  
         </div>
     </div>  
-    <div class="flex flex-col w-full items-center px-3 lg:flex-row lg:items-start lg:py-10">
+    <div class="flex flex-col w-full items-center px-3 pb-10 lg:flex-row  lg:items-start">
         <div class="flex flex-col w-full items-start gap-5 px-5">
-            <h2 class=" py-8 text-4xl font-bold justify-self-start">See What Categories Local Jobs Have</h2>
+            <h2 class="text-4xl font-bold justify-self-start">See What Categories Local Jobs Have</h2>
                 <a class="flex gap-2" href="/handyman">
                     <img class="w-8" src="../public/assets/images/tools-svgrepo-com.svg" alt="">
                    <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Handyman</p>
@@ -146,8 +150,8 @@
                     <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Gardening & Landscaping</p>
                 </a>
             </div>
-            <div class="flex flex-col w-full items-center gap-5 py-20 lg:py-10">
-                <h2 class="px-5 text-4xl font-bold justify-self-start">Have full trust in Local Jobs with these security features</h2>
+            <div class="flex flex-col w-full items-center gap-5">
+                <h2 class="px-5 text-4xl pt-10 font-bold justify-self-start lg:py-0">Have full trust in Local Jobs with these security features</h2>
                 <div class="flex flex-col w-full items-start gap-5 px-5">
                     <div class="flex flex-col items-start gap-3">
                         <h3 class="text-xl font-bold justify-self-start">Secure Payments With PayPal</h3>
