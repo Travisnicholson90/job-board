@@ -35,37 +35,14 @@ router.get("/job-board", withAuth, async (req, res) => {
     // Serialize data so the template is readable
     const jobs = jobData.map((job) => job.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
-    res.render("job-board", jobs);
+    res.render("job-board", { jobs, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
 });
 
-// Login route
-
-router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-  // Otherwise, render the 'login' template
-  res.render("login");
-});
-
-// Signup route
-router.get("/signup", async (req, res) => {
-  try {
-    // Render the sign-up page
-    res.render("signup");
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
-
-// Post a job route
+// Post a post-job route
 router.get("/post-job", withAuth, async (req, res) => {
   try {
     // Render the post-job page
@@ -84,6 +61,42 @@ router.get("/categories", withAuth, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Cannot retrieve categories" });
+  }
+});
+
+// Signup route
+router.get("/signup", async (req, res) => {
+  try {
+    // Render the sign-up page
+    res.render("signup");
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+// Login route
+
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect to the homepage
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  // Otherwise, render the 'login' template
+  res.render("login");
+});
+
+// Logout route
+router.post("/logout", (req, res) => {
+  // When the user logs out, the session is destroyed
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end().redirect("/");
+    });
+  } else {
+    // If there is no session, then the user is not logged in, so we end the request
+    res.status(404).end().redirect("/");
   }
 });
 
