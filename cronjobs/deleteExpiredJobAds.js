@@ -6,7 +6,7 @@ const { Job } = require("../models");
 const { Op } = require("sequelize");
 
 // Delete expired job ads and job adds that are older than 1 month every day at 12:00am
-cron.schedule("0 0 * * *", async () => {
+const task = cron.schedule("0 0 * * *", async () => {
   try {
     const expiredJobAds = await Job.findAll({
       where: {
@@ -37,4 +37,4 @@ cron.schedule("0 0 * * *", async () => {
   }
 });
 
-module.exports = cron;
+module.exports = task;

@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const routes = require("./controller");
 const sequelize = require("./config/connection");
-const cron = require("./cronjobs/deleteExpiredJobAds");
+const task = require("./cronjobs/deleteExpiredJobAds.js");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -45,8 +45,8 @@ app.use(routes);
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log("Now listening");
     // Start the cron job
-    cron.start();
+    task.start();
+    console.log("Now listening");
   });
 });
