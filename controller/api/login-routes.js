@@ -2,28 +2,13 @@ const router = require("express").Router();
 var bcrypt = require("bcryptjs");
 const { User } = require("../../models");
 
-// viewing of the seeded userData, etc. can be done in mysql workbench... or we can create routes for it
-
-//logging in user not working, invalid user...
-// get login page not working, missing express module...
-
-// show login page
-router.get("/", async (req, res) => {
-  try {
-    // Render the login-in page
-    res.render("login");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // login to account
 router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
     // user authentication logic
     const user = await User.findOne({
-      where: { email },
+      where: { email: email },
     });
 
     // checking the password
@@ -31,10 +16,23 @@ router.post("/", async (req, res) => {
 
     //error handling for wrong password
     if (!user || !validPassword) {
-      res.status(401).json({ message: "Invalid user or password" + email + password + user + validPassword });
+      res.status(401).json({
+        message:
+          "Invalid user or password" + email + password + user + validPassword,
+      });
       return;
     }
-    res.status(200).json({ message: "Login successful", user });
+
+    // set session variables
+    req.session.save(() => {
+      // set the 'loggedIn' variable to true
+      req.session.loggedIn = true;
+      // set the 'user_id' variable to the 'id' of the newly created user
+      req.session.user_id = user.id;
+      // set the 'username' variable to the 'username' of the newly created user
+      req.session.username = user.email;
+      res.status(200).json({ message: "Login successful", user });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -52,12 +50,20 @@ router.put("/:id", async (req, res) => {
       res.status(401).json({ message: "User not found" });
       return;
     }
-    //updates these fields of user.
-    if (email && password) {
+    // Updates individual fields of the user if they exist in the request body
+    if (first_name) {
       user.first_name = first_name;
+    }
+    if (last_name) {
       user.last_name = last_name;
+    }
+    if (suburb) {
       user.suburb = suburb;
+    }
+    if (email) {
       user.email = email;
+    }
+    if (password) {
       user.password = password;
     }
 
