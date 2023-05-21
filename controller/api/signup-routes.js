@@ -1,17 +1,5 @@
 const router = require("express").Router();
-var bcrypt = require("bcryptjs");
 const { User } = require("../../models");
-
-// getting signup page not working, express module not found...
-
-router.get("/", async (req, res) => {
-  try {
-    // Render the sign-up page
-    res.render("signup");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 //create new user
 router.post("/", async (req, res) => {
@@ -23,22 +11,27 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // hash a password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
     // create a new user
     const newUser = await User.create({
       first_name,
       last_name,
       suburb,
       email,
-      password: hashedPassword,
+      password,
     });
 
-    res
-      .status(200)
-      .json({ message: "Created user successfully!", user: newUser });
+    // set session variables
+    req.session.save(() => {
+      // set the 'loggedIn' variable to true
+      req.session.loggedIn = true;
+      // set the 'user_id' variable to the 'id' of the newly created user
+      req.session.user_id = newUser.id;
+      // set the 'username' variable to the 'username' of the newly created user
+      req.session.username = newUser.email;
+      res
+        .status(200)
+        .json({ message: "Created user successfully!", user: newUser });
+    });
   } catch (err) {
     if (err.name === "SequelizeValidationError") {
       const validationErrors = err.errors.map((error) => error.message);
