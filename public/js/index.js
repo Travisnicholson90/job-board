@@ -15,10 +15,10 @@ const postJobForm = async (event) => {
     const suburb = $("#suburb").val();
     const email = $("#email").val();
     const contactNumber = $("#contact-number").val();
-    const location = $("#location").val();
     const jobName = $("#job-name").val();
     const jobDescription = $("#job-description").val();
     const date = $("#date").val();
+    const time = $("#start-time").val();
     const price = $("#price").val(); 
     const duration = $("#duration").val(); 
 
@@ -54,6 +54,10 @@ const postJobForm = async (event) => {
         $("#date-error").text("Please enter your first name!")
         .addClass("text-red-700 italic text-sm");
     }
+    if (time === '') {
+        $("#start-time-error").text("Please enter a start time!")
+        .addClass("text-red-700 italic text-sm");
+    }
     if (price === '') {
         $("#price-error").text("Please enter your first name!")
         .addClass("text-red-700 italic text-sm");
@@ -68,20 +72,21 @@ const postJobForm = async (event) => {
     }
 
 
-    const data = {
-        job_name: firstName,
-        job_description, jobDescription,
-        job_suburb, suburb,
-        job_date, date,
-        job_duration, duration,
-        job_price, price,
+    const jobData = {
+        job_name: jobName,
+        job_description: jobDescription,
+        job_suburb: suburb,
+        job_date: date,
+        job_time: time,
+        job_duration: duration,
+        job_price: price,
     };
 
-    console.log(data);
+    console.log(jobData);
 
     const response = await fetch("/api/job-post", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(jobData),
         headers: {
             "Content-Type": "application/json",
         },
@@ -90,7 +95,6 @@ const postJobForm = async (event) => {
     if (response.ok) {
         alert("Your job has been submitted!");
         console.log("job submitted");
-        
     } else {
         alert("Failed to submit job.");
         console.log("job not submitted");
