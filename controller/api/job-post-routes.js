@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     // Find the category id of the selected category
     const job_category_id = await JobCategory.findOne({
       where: {
-        job_category,
+        job_category_name: job_category,
       },
     });
 
