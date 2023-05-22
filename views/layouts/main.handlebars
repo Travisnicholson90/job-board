@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/navbar.css">
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -10,30 +11,91 @@
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { theme: { extend: { colors: { bg: '#3AAFA9', textWhite:
-      '#FEFFFF', textBlack: '#17252A', textGreen: '#2B7A78', textLight:
-      '#DEF2F1' } } } }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: '#3AAFA9',
+              bgBlue: 'rgb(10, 101, 252)',
+              bgDarkBlue: 'rgb(6, 18, 87)',
+              bgWhite: '#F7F7F7',
+              textBlueGray: 'rgb(56, 65, 121)',
+              textWhite: '#FEFFFF',
+              textBlack: '#17252A',
+              textGreen: '#2B7A78',
+              textLight: '#DEF2F1',
+              fontFamily: 'Alfa Slab One',
+            },
+          },
+        },
+      };
     </script>
     <title>Job Board</title>
   </head>
-  <body class="bg-bg">
-    <header class="flex py-4">
-      <nav class="flex items-center">
-        <h2 class="text-textBlack text-5xl font-bold px-5">Birdsville</h2>
-        <ul class="flex items-center gap-8 text-3xl text-textLight px-6">
-          <li>Post Job</li>
-          <li>{{#if isLoggedIn}}<a href="/logout">Logout</a>{{else}}<a
-                href="/login"
-              >Login</a>{{/if}}</li>
-          <li>Sign Up</li>
-          <li>Categories</li>
+  <body class="bg-gray-200">
+    <header class="flex relative bg-indigo-950 items-center">
+      <div class="flex bg-indigo-950 items-center">
+        <img
+          id="toggle"
+          class="flex ms-8 w-14 py-4 hover:cursor-pointer lg:hidden"
+          src="/assets/images/hamburger-white.svg"
+          alt="nav-toggle"
+        />
+      </div>
+      <h2 class="font-mono text-3xl text-white font-bold bg-indigo-950 ml-auto">
+        Locals Jobs
+      </h2>
+      <a href="/post-job" class="ml-auto tooltip">
+        <img
+          class="w-16 ml-auto pe-5 hover:cursor-pointer"
+          src="/assets/images/plus.svg"
+          alt="create-job-icon"
+        />
+      <nav
+        id="navbar"
+        class="z-50 flex absolute top-20 right-0 p-2 flex-col bg-indigo-950 navbar-hidden navbar-transition navbar-show lg:top-0 left-0 right-0"
+      >
+      </a>
+        <ul class="flex flex-col justify-end gap-8 p-4 text-2xl text-white lg:flex-row justify-between lg:text-2xl lg:justify-normal lg:ms-auto lg:pe-10">
+          <li>
+            <a href="/job-board" class="hover:text-bgBlue cursor-pointer">Jobs Board</a>
+          </li>
+          <li>
+            <a href="/post-job" class="hover:text-bgBlue cursor-pointer">Post Job</a>
+          </li>
+          <li>
+            <a href="/categories" class="hover:text-bgBlue cursor-pointer">Job Categories</a>
+          </li>
+          <li>
+            <a href="/signup" class="hover:text-bgBlue cursor-pointer">Sign Up</a>
+          </li>
+          <li>
+            {{#if isLoggedIn}}
+              <a class="hover:text-bgBlue cursor-pointer" href="/logout">Logout</a>
+            {{else}}
+              <a class="hover:text-bgBlue cursor-pointer" href="/login">Login</a>
+            {{/if}}
+          </li>
+          <li>
+            <a href="/insurance" class="hover:text-bgBlue cursor-pointer">Insurance & Liability</a>
+          </li>
+          <li>
+            <a href="/payments" class="hover:text-bgBlue cursor-pointer">Payment Info</a>
+          </li>
         </ul>
       </nav>
     </header>
-    <main>
-
+    <main class="grid min-h-screen">
       {{{body}}}
-
     </main>
+      <footer>
+        <div class="bg-indigo-950 p-8">
+            <div class=" flex flex-col text-white items-center gap-3">
+                <h2 class="text-2xl font-mono font-extrabold">Local Jobs</h2>
+                <p class="text-xs">localjobs.pty.ltd 2011-2023@, All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/index.js"></script>
   </body>
 </html>

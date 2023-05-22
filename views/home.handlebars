@@ -1,81 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/navbar.css">
-    <script
-    src="https://code.jquery.com/jquery-3.7.0.js"
-    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                bg: '#3AAFA9',
-                bgBlue: 'rgb(10, 101, 252)',
-                bgDarkBlue: 'rgb(6, 18, 87)',
-                bgWhite: '#F7F7F7',
-                textBlueGray: 'rgb(56, 65, 121)',
-                textWhite: '#FEFFFF',
-                textBlack: '#17252A',
-                textGreen: '#2B7A78',
-                textLight: '#DEF2F1',
-                fontFamily: 'Alfa Slab One',
-              }
-            }
-          }
-        }
-    </script>
-<title>Job Board</title>
-</head>
-<body class="bg-gray-200">
-    <header class="flex relative bg-indigo-950 items-center">
-        <div class="flex bg-indigo-950 items-center">
-            <img id="toggle" class="flex ms-8 w-14 py-4 hover:cursor-pointer lg:hidden" src="../public/assets/images/hamburger-white.svg" alt="nav-toggle">
-        </div>
-        <h2 class="font-mono text-3xl text-white font-bold bg-indigo-950 ml-auto">
-            Locals Jobs
-        </h2>
-        <a href="/post-job" class="ml-auto tooltip">
-            <img class="w-16 ml-auto pe-5 hover:cursor-pointer" src="../public/assets/images/plus.svg" alt="create-job-icon">
-        </a>
-            <nav id="navbar" class="z-50 flex absolute top-20 right-0 p-2 flex-col bg-indigo-950 navbar-hidden navbar-transition navbar-show lg:top-0 left-0 right-0">
-            <ul class="flex flex-col justify-end gap-8 p-4 text-2xl text-white lg:flex-row justify-between">
-                <li>
-                    <a href="/job-board" class="hover:text-bgBlue cursor-pointer">Jobs Board</a>
-                </li>
-                <li>
-                    <a href="/post-job" class="hover:text-bgBlue cursor-pointer">Post Job</a>
-                </li>
-                <li>
-                    <a href="/categories" class="hover:text-bgBlue cursor-pointer">Job Categories</a>
-                </li>
-                <li>
-                    <a href="/signup" class="hover:text-bgBlue cursor-pointer">Sign Up</a>
-                </li>
-                <li>
-                    <a href="/login" class="hover:text-bgBlue cursor-pointer">Login</a>
-                </li>
-                <li>
-                    <a href="/announcements" class="hover:text-bgBlue cursor-pointer">Announcement</a>
-                </li>
-                <li>
-                    <a href="/inquiries" class="hover:text-bgBlue cursor-pointer">Inquiries</a>
-                </li>
-                <li>
-                    <a href="/insurance" class="hover:text-bgBlue cursor-pointer">Insurance & Liability</a>
-                </li>
-                <li class="pb-10">
-                    <a href="/payments" class="hover:text-bgBlue cursor-pointer">Payment Info</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main class="flex flex-col min-h-screen">
+
     <div class="grid grid-cols-1 items-center py-8 lg:grid-cols-2">
         <div class="flex flex-col gap-5 mt-10 p-10 items-center">
             <h1 class="text-7xl font-extrabold -skew-x-2 -skew-y-6 text-bgDarkBlue w-96 leading-normal lg:pt-16">Local Jobs Board</h1>
@@ -86,7 +9,7 @@
             </a>
         </div>
         <div class="grid grid-cols-1 items-center justify-center lg:pt-7">
-            <img class="w-2/3 mx-auto md:w-2/4 lg:w-2/3" src="../public/assets/images/Wavy Buddies - Delivering.png" alt="">
+            <img class="w-2/3 mx-auto md:w-2/4 lg:w-2/3" src="/assets/images/Wavy Buddies - Delivering.png" alt="">
         </div>
     </div>
     <div class="grid grid-cols-1 px-3 w-full py-8 items-center">
@@ -121,7 +44,7 @@
                 </div>
                 <div class="flex justify-center items-center py-8 lg:items-center">
                     <a href="/post-job">
-                        <button class="bg-bgBlue py-3 w-96 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200"">
+                        <button class="bg-bgBlue py-3 w-96 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">
                             Post your Job to Local workers
                         </button>
                     </a>
@@ -133,23 +56,23 @@
         <div class="flex flex-col w-full items-start gap-5 px-5">
             <h2 class="text-4xl font-bold justify-self-start">See What Categories Local Jobs Have</h2>
                 <a class="flex gap-2" href="/handyman">
-                    <img class="w-8" src="../public/assets/images/tools-svgrepo-com.svg" alt="">
+                    <img class="w-8" src="assets/images/tools-svgrepo-com.svg" alt="">
                    <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Handyman</p>
                 </a>
                 <a class="flex gap-2" href="/removals">
-                    <img class="w-8" src="../public/assets/images/box-svgrepo-com (1).svg" alt="">
+                    <img class="w-8" src="assets/images/box-svgrepo-com (1).svg" alt="">
                     <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Removals</p>
                 </a>
                 <a class="flex gap-2" href="/garbage">
-                    <img class="w-8" src="../public/assets/images/waste-svgrepo-com (1).svg" alt="">
+                    <img class="w-8" src="assets/images/waste-svgrepo-com (1).svg" alt="">
                     <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Waste Pickup</p>
                 </a>
                 <a class="flex gap-2" href="/errands">
-                    <img class="w-8" src="../public/assets/images/shopping-card-svgrepo-com.svg" alt="">
+                    <img class="w-8" src="assets/images/shopping-card-svgrepo-com.svg" alt="">
                     <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Errands & Shopping</p>
                 </a>
                 <a class="flex gap-2" href="/lanscaping">
-                    <img class="w-8" src="../public/assets/images/gardening-grass-svgrepo-com.svg" alt="">
+                    <img class="w-8" src="assets/images/gardening-grass-svgrepo-com.svg" alt="">
                     <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Gardening & Landscaping</p>
                 </a>
             </div>
@@ -157,7 +80,7 @@
                 <h2 class="px-5 text-4xl pt-10 font-bold justify-self-start lg:py-0">Have full trust in Local Jobs with these security features</h2>
                 <div class="flex flex-col w-full items-start gap-5 px-5">
                     <div class="flex flex-col items-start gap-3">
-                        <h3 class="relative flex text-xl font-bold justify-self-start">Secure Payments With PayPal <span class="flex items-center ms-3"><img class="absolute w-10" src="../public/assets/images/paypal-3-svgrepo-com.svg" alt="paypal"></span></h3>
+                        <h3 class="relative flex text-xl font-bold justify-self-start">Secure Payments With PayPal <span class="flex items-center ms-3"><img class="absolute w-10" src="assets/images/paypal-3-svgrepo-com.svg" alt="paypal"></span></h3>
                         <p>Local Jobs Only releases payments when the Job is complete and Signed of by both parties. Local Jobs keeps payments in escrow to avoid payment issues</p>
                         <a class="text-bgBlue font-bold hover:cursor-pointer" href="">More Info</a>
                     </div>
@@ -167,22 +90,10 @@
                         <a class="text-bgBlue font-bold hover:cursor-pointer" href="">More Info</a>
                     </div>
                     <div class="flex flex-col items-start gap-3">
-                        <h3 class="relative flex text-xl font-bold justify-self-start">Mandatory Work Cover<span class="flex items-center ms-3"><img class="absolute w-8" src="../public/assets/images/health-insurance-medical-medical-svgrepo-com.svg" alt="health-insurance"></span></h3>
+                        <h3 class="relative flex text-xl font-bold justify-self-start">Mandatory Work Cover<span class="flex items-center ms-3"><img class="absolute w-8" src="assets/images/health-insurance-medical-medical-svgrepo-com.svg" alt="health-insurance"></span></h3>
                         <p>All job posters are required to purchase Insurance for all Local Jobs workers. A small fee of <span class="font-bold">$21.99</span> ensures all Local Jobs workers are looked after in the event of injury.</p>
                         <a class="text-bgBlue font-bold hover:cursor-pointer" href="">More Info</a>
                     </div>
                 </div>
             </div>
     </div>  
-  </main>
-  <footer>
-    <div class="bg-indigo-950 p-8">
-        <div class=" flex flex-col text-white items-center gap-3">
-            <h2 class="text-2xl font-mono font-extrabold">Local Jobs</h2>
-            <p class="text-xs">localjobs.pty.ltd 2011-2023@, All Rights Reserved</p>
-        </div>
-    </div>
-  </footer>
-    <script src="../public/js/index.js"></script>
-</body>
-</html>

@@ -26,7 +26,7 @@ User.init(
     // define a suburb column
     suburb: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     // define an email column
     email: {
