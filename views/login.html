@@ -69,41 +69,38 @@
                 <li>
                     <a href="/insurance" class="hover:text-bgBlue cursor-pointer">Insurance & Liability</a>
                 </li>
-                <li class="pb-10">
+                <li>
                     <a href="/payments" class="hover:text-bgBlue cursor-pointer">Payment Info</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <main>
-        <div class="flex w-full py-52 items-center">
-            <form id="login-form" class="flex flex-col mx-auto w-10/12 md:w-2/4 lg:w-1/3" action="">
+    <main class="flex flex-col justify-between min-h-screen">
+            <form id="login-form" class="grid grid-cols-1 flex-col items-center my-auto justify-center mx-auto w-10/12 md:w-2/4 lg:w-1/3" action="">
                 <h2 class="text-4xl font-bold py-4">Login</h2>
-                    <div class="flex flex-col justify-start">
-                        <label class="text-textBlack text-3xl py-1" for="email">Email</label>
-                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="login-email" type="text" name="email"> 
-                        <p id="login-email-error"></p>
-                    </div>
-                    <div class="flex flex-col justify-start ">
-                        <label class="text-textBlack text-3xl py-1" for="password">Password</label>
-                        <input class="w-full rounded-lg p-1 outline-none ps-3" id="login-password" type="
-                        password" name="password">
-                        <p id="login-password-error"></p>
-                    </div>
-                        <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-bgBlue rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-5" type="submit" role="button">Sign Up</button>
-                    </div>
-            </form>
-
-        </div>
+                <div class="flex flex-col justify-start">
+                    <label class="text-textBlack text-3xl py-1" for="email">Email</label>
+                    <input class="w-full rounded-lg p-1 outline-none ps-3" id="login-email" type="text" name="email"> 
+                    <p id="login-email-error"></p>
+                </div>
+                <div class="flex flex-col justify-start">
+                    <label class="text-textBlack text-3xl py-1" for="password">Password</label>
+                    <input class="w-full rounded-lg p-1 outline-none ps-3" id="login-password" type="
+                    password" name="password">
+                    <p id="login-password-error"></p>
+                </div>
+                <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-bgBlue rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-5" type="submit" role="button">Sign Up</button>
+            </div>
+        </form>
+        <footer>
+            <div class="flex w-full items-center justify-center bg-indigo-950 py-5">
+                <div class=" flex flex-col text-white items-center gap-3">
+                    <h2 class="text-2xl font-mono font-extrabold">Local Jobs</h2>
+                    <p class="text-xs">localjobs.pty.ltd 2011-2023@, All Rights Reserved</p>
+                </div>
+            </div>
+      </footer>
     </main>
-  <footer>
-    <div class="bg-indigo-950 p-8 mt-5">
-      <div class=" flex flex-col text-white items-center gap-3">
-          <h2 class="text-2xl font-mono font-extrabold">Local Jobs</h2>
-          <p class="text-xs">localjobs.pty.ltd 2011-2023@, All Rights Reserved</p>
-      </div>
-  </div>
-  </footer>
   <script src="../public/js/index.js"></script>
 </body>
 </html>
