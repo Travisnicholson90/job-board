@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log(email, password);
-    
+
     // user authentication logic
     const user = await User.findOne({
       where: { email: email },
@@ -33,7 +33,8 @@ router.post("/", async (req, res) => {
       req.session.user_id = user.id;
       // set the 'username' variable to the 'username' of the newly created user
       req.session.username = user.email;
-      res.status(200).json({ message: "Login successful", user });
+      // Redirect the user to the main page
+      res.redirect("/");
     });
   } catch (err) {
     res.status(400).json(err);
@@ -72,7 +73,7 @@ router.put("/:id", async (req, res) => {
     // saves the user to User table
     await user.save();
 
-    res.status(200).json({ message: "Login successful", user });
+    res.status(200).json({ message: "Update successful", user });
   } catch (err) {
     res.status(400).json(err);
   }

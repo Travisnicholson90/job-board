@@ -7,7 +7,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("home", { loggedIn: req.session.loggedIn })
+    res.render("home");
     // res.sendFile(path.join(__dirname, "../views/home.html"));
   } catch (err) {
     console.error(err);
@@ -54,7 +54,6 @@ router.get("/post-job", withAuth, async (req, res) => {
   }
 });
 
-
 // Job categories route
 router.get("/categories", withAuth, async (req, res) => {
   try {
@@ -92,16 +91,19 @@ router.get("/login", (req, res) => {
 });
 
 // Logout route
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   // When the user logs out, the session is destroyed
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end().redirect("/");
+      res.status(204).end();
     });
   } else {
     // If there is no session, then the user is not logged in, so we end the request
-    res.status(404).end().redirect("/");
+    res.status(404).end();
   }
+
+  // Redirect the user to the main page
+  res.redirect("/");
 });
 
 module.exports = router;
