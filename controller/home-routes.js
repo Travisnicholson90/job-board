@@ -7,7 +7,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("home");
+    res.render("home", { loggedIn: req.session.loggedIn });
     // res.sendFile(path.join(__dirname, "../views/home.html"));
   } catch (err) {
     console.error(err);

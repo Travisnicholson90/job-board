@@ -33,9 +33,9 @@ router.post("/", async (req, res) => {
       req.session.user_id = user.id;
       // set the 'username' variable to the 'username' of the newly created user
       req.session.username = user.email;
-      // Redirect the user to the main page
-      res.redirect("/");
     });
+    // Redirect the user to the main page
+    res.redirect("/");
   } catch (err) {
     res.status(400).json(err);
   }
