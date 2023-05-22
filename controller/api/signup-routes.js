@@ -6,7 +6,7 @@ router.post("/", async (req, res) => {
   try {
     const { first_name, last_name, suburb, email, password } = req.body;
     console.log(first_name, last_name, suburb, email, password);
-    
+
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
@@ -29,9 +29,9 @@ router.post("/", async (req, res) => {
       req.session.user_id = newUser.id;
       // set the 'username' variable to the 'username' of the newly created user
       req.session.username = newUser.email;
-      res
-        .status(200)
-        .json({ message: "Created user successfully!", user: newUser });
+
+      // Redirect the user to the main page
+      res.status(200).redirect("/");
     });
   } catch (err) {
     if (err.name === "SequelizeValidationError") {
