@@ -7,7 +7,8 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    res.sendFile(path.join(__dirname, "../views/home.html"));
+    res.render("home", { loggedIn: req.session.loggedIn })
+    // res.sendFile(path.join(__dirname, "../views/home.html"));
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -53,6 +54,7 @@ router.get("/post-job", withAuth, async (req, res) => {
   }
 });
 
+
 // Job categories route
 router.get("/categories", withAuth, async (req, res) => {
   try {
@@ -68,8 +70,8 @@ router.get("/categories", withAuth, async (req, res) => {
 router.get("/signup", async (req, res) => {
   try {
     // Render the sign-up page
-    // res.render("signup");
-    res.sendFile(path.join(__dirname, "../views/signup.html"));
+    res.render("signup");
+    //res.sendFile(path.join(__dirname, "../views/signup.html"));
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -85,8 +87,8 @@ router.get("/login", (req, res) => {
     return;
   }
   // Otherwise, render the 'login' template
-  //   res.render("login");
-  res.sendFile(path.join(__dirname, "../views/login.html"));
+  res.render("login");
+  // res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
 // Logout route

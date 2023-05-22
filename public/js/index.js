@@ -69,22 +69,17 @@ const postJobForm = async (event) => {
 
 
     const data = {
-        firstName,
-        lastName,
-        suburb,
-        email,
-        contactNumber,
-        location,
-        jobName,
-        jobDescription,
-        date,
-        price,
-        duration,
+        job_name: firstName,
+        job_description, jobDescription,
+        job_suburb, suburb,
+        job_date, date,
+        job_duration, duration,
+        job_price, price,
     };
 
     console.log(data);
 
-    const response = await fetch("/api/post-jobs", {
+    const response = await fetch("/api/job-post", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -109,23 +104,29 @@ const signUpForm = async (event) => {
   
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
-    const firstNameSignUp = $("#first-name").val();
-    const lastNameSignUp = $("#last-name").val();
-    const emailSignUp = $("#email").val();
-    const passwordSignUp = $("#password").val();
+    const firstNameSignUp = $("#signup-first-name").val();
+    const lastNameSignUp = $("#signup-last-name").val();
+    const suburbSignUp = $("#signup-suburb").val();
+    const emailSignUp = $("#signup-email").val();
+    const passwordSignUp = $("#signup-password").val();
   
     if (firstNameSignUp === '') {
-        $("#firstname-error").text("Please enter your first name!")
+        $("#signup-firstname-error").text("Please enter your first name!")
         .addClass("text-red-700 italic text-sm");
     }
 
     if (lastNameSignUp === '') {
-        $("#lastname-error").text("Please enter your last name!")
+        $("#signup-lastname-error").text("Please enter your suburb!")
+        .addClass("text-red-700 italic text-sm");
+    }
+
+    if (suburbSignUp === '') {
+        $("#signup-suburb-error").text("Please enter your last name!")
         .addClass("text-red-700 italic text-sm");
     }
     
     if (!emailRegex.test(emailSignUp)) {
-        $("#email-error").text("Please enter a valid email address!")
+        $("#signup-email-error").text("Please enter a valid email address!")
         .addClass("text-red-700 italic text-sm");
     } 
     
@@ -135,11 +136,15 @@ const signUpForm = async (event) => {
     } 
 
     const userData = {
-      firstName: firstNameSignUp,
-      lastName: lastNameSignUp,
-      email: emailSignUp,
-      password: passwordSignUp,
-    };
+        first_name: firstNameSignUp,
+        last_name: lastNameSignUp,
+        suburb: suburbSignUp,
+        email: emailSignUp,
+        password: passwordSignUp,
+      };
+
+      console.log(userData);
+      
   
     const response = await fetch("/api/signup", {
       method: "POST",
@@ -190,7 +195,9 @@ const signUpForm = async (event) => {
         },
     });
     
-    if (!response.ok) {
+    if (response.ok) {
+        console.log('logged in');
+    } else {
         alert("Cannot Login at this time.");
         console.log("login error");
     }; 
