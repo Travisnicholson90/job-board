@@ -25,17 +25,17 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    // set session variables
+    // set the 'loggedIn' variable to true
+    req.session.loggedIn = true;
+    // set the 'user_id' variable to the 'id' of the newly created user
+    req.session.user_id = user.id;
+    // set the 'username' variable to the 'username' of the newly created user
+    req.session.username = user.email;
+
+    // save session variables and redirect to the main page once saved
     req.session.save(() => {
-      // set the 'loggedIn' variable to true
-      req.session.loggedIn = true;
-      // set the 'user_id' variable to the 'id' of the newly created user
-      req.session.user_id = user.id;
-      // set the 'username' variable to the 'username' of the newly created user
-      req.session.username = user.email;
+      res.redirect("/");
     });
-    // Redirect the user to the main page
-    res.redirect("/");
   } catch (err) {
     res.status(400).json(err);
   }

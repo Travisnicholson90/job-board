@@ -66,16 +66,18 @@
           <li>
             <a href="/categories" class="hover:text-bgBlue cursor-pointer">Job Categories</a>
           </li>
+          {{#if loggedIn}}
+           <li>
+               <a class="hover:text-bgBlue cursor-pointer" href="/logout">Logout</a>
+          </li> 
+          {{else}}
           <li>
             <a href="/signup" class="hover:text-bgBlue cursor-pointer">Sign Up</a>
           </li>
           <li>
-            {{#if loggedIn}}
-              <a class="hover:text-bgBlue cursor-pointer" href="/logout">Logout</a>
-            {{else}}
-              <a class="hover:text-bgBlue cursor-pointer" href="/login">Login</a>
-            {{/if}}
+            <a href="/login" class="hover:text-bgBlue cursor-pointer">Login</a>
           </li>
+          {{/if}}
           <li>
             <a href="/insurance" class="hover:text-bgBlue cursor-pointer">Insurance & Liability</a>
           </li>
