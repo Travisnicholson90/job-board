@@ -5,8 +5,7 @@ const homeRoutes = require("./home-routes");
 router.use("/api", apiRoutes);
 router.use("/", homeRoutes);
 
-router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>");
-});
+// If the url is wrong send 404 status request.
+router.get("*", (req, res) => res.status(404).send("<h1> 404 Not Found </h1>"));
 
 module.exports = router;
