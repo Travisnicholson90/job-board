@@ -15,6 +15,16 @@ router.post("/", async (req, res) => {
     } = req.body;
     console.log("post-job", job_name);
 
+    // Find the category id of the selected category
+    const job_category_id = await JobCategory.findOne({
+      where: {
+        job_category,
+      },
+    });
+
+    // Find the user id of the logged in user
+    const job_user_id = req.session.user_id;
+
     const newJob = await Job.create({
       job_name,
       job_description,
