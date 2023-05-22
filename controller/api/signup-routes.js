@@ -21,17 +21,16 @@ router.post("/", async (req, res) => {
       password,
     });
 
-    // set session variables
-    req.session.save(() => {
-      // set the 'loggedIn' variable to true
-      req.session.loggedIn = true;
-      // set the 'user_id' variable to the 'id' of the newly created user
-      req.session.user_id = newUser.id;
-      // set the 'username' variable to the 'username' of the newly created user
-      req.session.username = newUser.email;
+    // set the 'loggedIn' variable to true
+    req.session.loggedIn = true;
+    // set the 'user_id' variable to the 'id' of the newly created user
+    req.session.user_id = newUser.id;
+    // set the 'username' variable to the 'username' of the newly created user
+    req.session.username = newUser.email;
 
-      // Redirect the user to the main page
-      res.status(200).redirect("/");
+    // save session variables and redirect to the main page once saved
+    req.session.save(() => {
+      res.redirect("/");
     });
   } catch (err) {
     if (err.name === "SequelizeValidationError") {
