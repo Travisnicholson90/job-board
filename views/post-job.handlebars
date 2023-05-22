@@ -1,63 +1,10 @@
 
-<form
-  id="post-job-form"
-  class="flex flex-col lg:flex-row mx-auto w-8/12 mx-auto"
-  action=""
->
-  <div class="flex flex-col w-96 mx-auto px-2">
-    <div class="flex flex-col justify-start">
-      <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
-      <input
-        class="w-full rounded-lg p-1 outline-none ps-3"
-        id="first-name"
-        type="text"
-        name="first-name"
-      />
-      <p id="first-error"></p>
-    </div>
-    <div class="flex flex-col justify-start">
-      <label class="text-textBlack text-3xl py-1" for="last-name">Last Name</label>
-      <input
-        class="w-full rounded-lg p-1 outline-none ps-3"
-        id="last-name"
-        type="text"
-        name="last-name"
-      />
-      <p id="lastname-error"></p>
-    </div>
-    <div class="flex flex-col justify-start">
-      <label class="text-textBlack text-3xl py-1" for="email">Email</label>
-      <input
-        class="w-full rounded-lg p-1 outline-none ps-3"
-        id="email"
-        type="text"
-        name="email"
-      />
-      <p id="email-error"></p>
-    </div>
-    <div class="flex flex-col justify-start">
-      <label class="text-textBlack text-3xl py-1" for="contact">Contact Number</label>
-      <input
-        class="w-full rounded-lg p-1 outline-none ps-3"
-        id="contact-number"
-        type="text"
-        name="contact-number"
-      />
-      <p id="number-error"></p>
-    </div>
-    <div class="flex flex-col justify-start">
-      <label class="text-textBlack text-3xl py-1" for="location">Enter your
-        Suburb</label>
-      <input
-        class="w-full rounded-lg p-1 outline-none ps-3"
-        id="suburb"
-        type="text"
-      />
-      <p id="suburb-error"></p>
-    </div>
-  </div>
-
-  <div class="flex flex-col w-96 mx-auto px-2">
+  <div class="grid grid-cols-1 items-center w-3/4 mx-auto my-auto px-2 md:w-4/5 lg:w-2/5">
+  <h2 class="text-4xl font-bold text-indigo-950 my-3">Create Job</h2>
+  <form
+    id="post-job-form"
+    action=""
+  >
     <div class="flex flex-col justify-start">
       <label class="text-textBlack text-3xl py-1" for="job-name">Job Name</label>
       <input
@@ -68,17 +15,32 @@
       />
       <p id="job-name-error"></p>
     </div>
+
     <div class="flex flex-col justify-start">
       <label class="text-textBlack text-3xl py-1" for="job-description">Job
         Description</label>
-      <input
-        class="w-full rounded-lg p-1 outline-none ps-3"
+      <textarea class="w-full rounded-lg p-1 outline-none px-3"
         id="job-description"
         type="text"
         name="job-description"
-      />
+       rows="5"
+       cols="10"
+       >
+
+      </textarea>
       <p id="description-error"></p>
     </div>
+    
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="location">Suburb</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="suburb"
+        type="text"
+      />
+      <p id="suburb-error"></p>
+    </div>
+
     <div class="flex flex-col justify-start">
       <label class="text-textBlack text-3xl py-1" for="date">Date</label>
       <input
@@ -89,16 +51,18 @@
       />
       <p id="date-error"></p>
     </div>
+    
     <div class="flex flex-col justify-start">
-      <label class="text-textBlack text-3xl py-1" for="Price">Price</label>
+      <label class="text-textBlack text-3xl py-1" for="date">Start Time</label>
       <input
         class="w-full rounded-lg p-1 outline-none ps-3"
-        id="price"
-        type="text"
-        name="Price"
+        id="start-time"
+        type="time"
+        name="time"
       />
-      <p id="price-error"></p>
+      <p id="start-time-error"></p>
     </div>
+    
     <div class="flex flex-col justify-start">
       <label class="text-textBlack text-3xl py-1" for="Est Duration">Est
         Duration</label>
@@ -110,11 +74,22 @@
       />
       <p id="duration-error"></p>
     </div>
+    
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="Price">Price</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="price"
+        type="number"
+        name="Price"
+      />
+      <p id="price-error"></p>
+    </div>
     <button
-      class="flex w-52 bg-black rounded-2xl py-2 text-white items-center justify-center my-3 hover:bg-emerald-950"
+      class="bg-bgBlue my-3 py-3 md:w-3/5 w-3/5 lg:w-2/5 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200"
       type="submit"
       role="button"
-    >CREATE JOB</button>
+    >Post Job</button>
   </div>
 </form>
 </div>

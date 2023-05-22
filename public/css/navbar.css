@@ -8,6 +8,19 @@
     position: relative
 }
 
+.tooltip-text {
+    position: absolute;
+    visibility: hidden;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+/* 
 .tooltip:before {
     content: 'Create Job';
     position: absolute;
@@ -26,7 +39,7 @@
     width: max-content;
     color: #0a65fc;
     font-weight: bold;
-} 
+}  */
 
 .navbar-transition {
     transition: transform 0.3s ease-out;
@@ -38,14 +51,4 @@
 
 .navbar-show {
     transform: translateY(-200%);
-}
-
-@media (min-width: 1024px) {
-    .navbar-transition {
-        transform: translateY(0%) !important;
-    }
-
-    .navbar-hidden {
-        display: flex !important;
-    }
 }

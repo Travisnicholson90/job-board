@@ -10,106 +10,96 @@ const postJobForm = async (event) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const firstName = $("#first-name").val();
-  const lastName = $("#last-name").val();
-  const suburb = $("#suburb").val();
-  const email = $("#email").val();
-  const contactNumber = $("#contact-number").val();
-  const location = $("#location").val();
-  const jobName = $("#job-name").val();
-  const jobDescription = $("#job-description").val();
-  const date = $("#date").val();
-  const price = $("#price").val();
-  const duration = $("#duration").val();
+    const firstName = $("#first-name").val();
+    const lastName = $("#last-name").val();
+    const suburb = $("#suburb").val();
+    const email = $("#email").val();
+    const contactNumber = $("#contact-number").val();
+    const jobName = $("#job-name").val();
+    const jobDescription = $("#job-description").val();
+    const date = $("#date").val();
+    const time = $("#start-time").val();
+    const price = $("#price").val(); 
+    const duration = $("#duration").val(); 
 
-  if (firstName === "") {
-    $("#first-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (lastName === "") {
-    $("#lastname-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (!emailRegex.test(email)) {
-    $("#email-error")
-      .text("Please enter a valid email address!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (contactNumber === "") {
-    $("#number-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (suburb === "") {
-    $("#suburb-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (jobName === "") {
-    $("#job-name-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (jobDescription === "") {
-    $("#description-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (date === "") {
-    $("#date-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (price === "") {
-    $("#price-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (duration === "") {
-    $("#duration-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (firstName === "") {
-    $("#first-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
+    if (firstName === '') {
+        $("#first-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (lastName === '') {
+        $("#lastname-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if(!emailRegex.test(email)) {
+        $("#email-error").text("Please enter a valid email address!")
+        .addClass("text-red-700 italic text-sm");
+    };
+    if (contactNumber === '') {
+        $("#number-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (suburb === '') {
+        $("#suburb-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (jobName === '') {
+        $("#job-name-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (jobDescription === '') {
+        $("#description-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (date === '') {
+        $("#date-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (time === '') {
+        $("#start-time-error").text("Please enter a start time!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (price === '') {
+        $("#price-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (duration === '') {
+        $("#duration-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (firstName === '') {
+        $("#first-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
 
-  const data = {
-    job_name: firstName,
-    job_description,
-    jobDescription,
-    job_suburb,
-    suburb,
-    job_date,
-    date,
-    job_duration,
-    duration,
-    job_price,
-    price,
-  };
 
-  console.log(data);
+    const jobData = {
+        job_name: jobName,
+        job_description: jobDescription,
+        job_suburb: suburb,
+        job_date: date,
+        job_time: time,
+        job_duration: duration,
+        job_price: price,
+    };
 
-  const response = await fetch("/api/job-post", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+    console.log(jobData);
 
-  if (response.ok) {
-    alert("Your job has been submitted!");
-    console.log("job submitted");
-  } else {
-    alert("Failed to submit job.");
-    console.log("job not submitted");
-  }
-};
+    const response = await fetch("/api/job-post", {
+        method: "POST",
+        body: JSON.stringify(jobData),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (response.ok) {
+        alert("Your job has been submitted!");
+        console.log("job submitted");
+    } else {
+        alert("Failed to submit job.");
+        console.log("job not submitted");
+    }
+}
 $("#post-job-form").submit(postJobForm);
 
 const signUpForm = async (event) => {
