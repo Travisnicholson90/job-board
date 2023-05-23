@@ -11,16 +11,10 @@ router.post("/", async (req, res) => {
       job_time,
       job_duration,
       job_price,
-      job_category,
+      job_category_id,
     } = req.body;
-    console.log("post-job", job_name);
 
-    // Find the category id of the selected category
-    const job_category_id = await JobCategory.findOne({
-      where: {
-        job_category_name: job_category,
-      },
-    });
+    console.log(job_category_id);
 
     // Find the user id of the logged in user
     const job_user_id = req.session.user_id;
