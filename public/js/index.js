@@ -10,44 +10,32 @@ const postJobForm = async (event) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const firstName = $("#first-name").val();
-    const lastName = $("#last-name").val();
-    const suburb = $("#suburb").val();
-    const email = $("#email").val();
-    const contactNumber = $("#contact-number").val();
     const jobName = $("#job-name").val();
+    const jobCategory = $('#job-category').val();
     const jobDescription = $("#job-description").val();
+    const suburb = $("#suburb").val();
     const date = $("#date").val();
     const time = $("#start-time").val();
-    const price = $("#price").val(); 
     const duration = $("#duration").val(); 
+    const price = $("#price").val(); 
 
-    if (firstName === '') {
-        $("#first-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (lastName === '') {
-        $("#lastname-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if(!emailRegex.test(email)) {
-        $("#email-error").text("Please enter a valid email address!")
-        .addClass("text-red-700 italic text-sm");
-    };
-    if (contactNumber === '') {
-        $("#number-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (suburb === '') {
-        $("#suburb-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
+
+ 
     if (jobName === '') {
         $("#job-name-error").text("Please enter your first name!")
         .addClass("text-red-700 italic text-sm");
     }
+    if (jobCategory === '') {
+      $('#job-category-error').text("Please select a job category!")
+      .addClass("text-red-700 italic text-sm");
+    }
+
     if (jobDescription === '') {
         $("#description-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (suburb === '') {
+        $("#suburb-error").text("Please enter your first name!")
         .addClass("text-red-700 italic text-sm");
     }
     if (date === '') {
@@ -66,10 +54,7 @@ const postJobForm = async (event) => {
         $("#duration-error").text("Please enter your first name!")
         .addClass("text-red-700 italic text-sm");
     }
-    if (firstName === '') {
-        $("#first-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
+ 
 
 
     const jobData = {
@@ -80,6 +65,7 @@ const postJobForm = async (event) => {
         job_time: time,
         job_duration: duration,
         job_price: price,
+        job_category_id: jobCategory,
     };
 
     console.log(jobData);
