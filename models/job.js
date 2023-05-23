@@ -47,10 +47,11 @@ Job.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    // define a job_status column
-    job_status: {
-      type: DataTypes.STRING,
+    // define a created_at column
+    created_at: {
+      type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     // define a job_category_id column
     job_category_id: {

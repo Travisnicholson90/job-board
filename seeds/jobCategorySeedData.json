@@ -1,32 +1,32 @@
 [
   {
-    "name": "General Labor"
+    "job_category_name": "General Labor"
   },
   {
-    "name": "Handyman Services"
+    "job_category_name": "Handyman Services"
   },
   {
-    "name": "Pet Care"
+    "job_category_name": "Pet Care"
   },
   {
-    "name": "Personal Assistance"
+    "job_category_name": "Personal Assistance"
   },
   {
-    "name": "Event Support"
+    "job_category_name": "Event Support"
   },
   {
-    "name": "Freelance Services"
+    "job_category_name": "Freelance Services"
   },
   {
-    "name": "Tutoring and Lessons"
+    "job_category_name": "Tutoring and Lessons"
   },
   {
-    "name": "Babysitting and Childcare"
+    "job_category_name": "Babysitting and Childcare"
   },
   {
-    "name": "Elderly Care"
+    "job_category_name": "Elderly Care"
   },
   {
-    "name": "Miscellaneous Odd Jobs"
+    "job_category_name": "Miscellaneous Odd Jobs"
   }
 ]
