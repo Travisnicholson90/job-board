@@ -1,5 +1,5 @@
 
-    <div class="grid grid-cols-1 items-center py-8 px-10 lg:grid-cols-2">
+    <div class="grid grid-cols-1 items-center mx-auto py-8 px-10 lg:grid-cols-2 ">
         <div class="flex flex-col gap-5 mt-8 p-10 items-center">
             <img class="sm:w-4/5 md:w-3/5 lg:w-3/5 -skew-x-4 -skew-y-10 " src="/assets/images/Noticed_Pin_Red.png" alt="brand-logo">
             {{!-- <h1 class="text-7xl font-extrabold -skew-x-2 -skew-y-6 text-bgDarkBlue w-96 leading-normal lg:pt-16">Local Jobs Board</h1> --}}
@@ -13,8 +13,8 @@
             <img class="w-2/3 mx-auto md:w-2/4 lg:w-2/3" src="/assets/images/Wavy Buddies - Delivering.png" alt="">
         </div>
     </div>
-    <div class="grid grid-cols-1 px-3 w-full py-8 px-10">
-        <div class="grid grid-cols-1 px-10 items-start justify-center lg:grid-cols-2 lg:items-center lg:justify-center">
+    <div class="grid grid-cols-1 w-full py-8 px-10">
+        <div class="grid grid-cols-1 px-10 items-start justify-center lg:grid-cols-2 lg:items-center lg:justify-start">
             <div class="grid grid-cols-1 px-5 lg:justify-center lg:items-center">
                 <h2 class="items-center pb-3 font-bold text-4xl lg:text-3xl ">Need a Job Done.
                 </h2>
@@ -54,9 +54,20 @@
         </div>
     </div>  
     <div class="flex flex-col w-full items-center px-10 pb-10 lg:flex-row lg:items-start">
-        <div class="flex flex-col w-full gap-5 px-10 mx-auto">
-            <h2 class="text-4xl font-bold">See What Categories Local Jobs Have</h2>
-                <a class="flex gap-2" href="/handyman">
+        <div class="flex flex-col w-full gap-3 px-10 mx-auto">
+            <h2 class="text-4xl font-bold mb-2">See What Categories Local Jobs Have</h2>
+                  {{#each categories as |category|}}
+                    <a class="flex gap-2 hover:text-bgBlue" href="/categories/{{category.dataValues.id}}">
+                    <img class="w-8" src="assets/images/bullet.svg" alt="">
+                    <p class="text-xl">{{category.dataValues.job_category_name}}</p>
+                    </a>
+                  {{/each}}
+                  <a href="/job-board">
+                    <button class="bg-bgBlue py-2 w-96 mt-3 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">
+                        See all Jobs
+                    </button>
+                  </a>
+                {{!-- <a class="flex gap-2" href="/handyman">
                     <img class="w-8" src="assets/images/tools-svgrepo-com.svg" alt="">
                    <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Handyman</p>
                 </a>
@@ -75,7 +86,7 @@
                 <a class="flex gap-2" href="/lanscaping">
                     <img class="w-8" src="assets/images/gardening-grass-svgrepo-com.svg" alt="">
                     <p class="text-2xl hover:cursor-pointer hover:text-bgBlue">Gardening & Landscaping</p>
-                </a>
+                </a> --}}
             </div>
             <div class="flex flex-col gap-5 w-full ">
                 <h2 class="px-5 text-4xl pt-10 font-bold lg:py-0">Have full trust in Local Jobs with these security features</h2>
@@ -97,4 +108,4 @@
                     </div>
                 </div>
             </div>
-    </div>  
+    </div> 

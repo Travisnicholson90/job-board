@@ -5,9 +5,11 @@ const { Job, JobCategory, User } = require("../models");
 
 const withAuth = require("../utils/auth");
 
+
 router.get("/", async (req, res) => {
   try {
-    res.render("home", { loggedIn: req.session.loggedIn });
+    const categories = await JobCategory.findAll();
+    res.render("home", { categories, loggedIn: req.session.loggedIn });
     // res.sendFile(path.join(__dirname, "../views/home.html"));
   } catch (err) {
     console.error(err);
@@ -21,7 +23,7 @@ router.get("/job-board", withAuth, async (req, res) => {
     // Get 20 latest jobs to display on the job-board page
     const jobData = await Job.findAll({
       limit: 20,
-      order: [["createdAt", "DESC"]],
+      order: [["created_at", "DESC"]],
       include: [
         {
           model: User,
@@ -29,13 +31,15 @@ router.get("/job-board", withAuth, async (req, res) => {
         },
         {
           model: JobCategory,
-          attributes: ["category_name"],
+          attributes: ["job_category_name"],
         },
       ],
     });
     // Serialize data so the template is readable
     const jobs = jobData.map((job) => job.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
+    console.log(jobs);
+    
     res.render("job-board", { jobs, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);

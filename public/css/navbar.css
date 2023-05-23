@@ -20,26 +20,6 @@
     visibility: visible;
     opacity: 1;
   }
-/* 
-.tooltip:before {
-    content: 'Create Job';
-    position: absolute;
-    top: 4rem;
-    right: 2rem;
-    width: max-content;
-    color: transparent;
-    font-weight: bold;
-}
-
-.tooltip:hover .tooltip:before {
-    content: 'Create Job';
-    position: absolute;
-    top: 4rem;
-    right: 2rem;
-    width: max-content;
-    color: #0a65fc;
-    font-weight: bold;
-}  */
 
 .navbar-transition {
     transition: transform 0.3s ease-out;
