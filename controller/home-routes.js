@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
 // Jobs by categories route
 
-router.get("/categories/:id", async (req, res) => {
+router.get("/categories/:id", withAuth, async (req, res) => {
   try {
     const categoryId = req.params.id;
     const jobsByCategoryData = await Job.findAll({
