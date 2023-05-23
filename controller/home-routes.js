@@ -5,7 +5,6 @@ const { Job, JobCategory, User } = require("../models");
 
 const withAuth = require("../utils/auth");
 
-
 router.get("/", async (req, res) => {
   try {
     const categories = await JobCategory.findAll();
@@ -14,6 +13,32 @@ router.get("/", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
+  }
+});
+
+// Jobs by categories route
+
+router.get("/categories/:id", withAuth, async (req, res) => {
+  try {
+    const categoryId = req.params.id;
+    const jobsByCategoryData = await Job.findAll({
+      include: [
+        {
+          model: JobCategory,
+          where: { id: categoryId },
+        },
+      ],
+      order: [["created_at", "DESC"]],
+    });
+    const jobsByCategory = jobsByCategoryData.map((job) =>
+      job.get({ plain: true })
+    );
+
+    console.log(jobsByCategory);
+    res.render("jobs", { jobsByCategory, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Cannot retrieve jobs based on category" });
   }
 });
 
@@ -39,7 +64,7 @@ router.get("/job-board", withAuth, async (req, res) => {
     const jobs = jobData.map((job) => job.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
     console.log(jobs);
-    
+
     res.render("job-board", { jobs, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);

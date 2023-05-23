@@ -1,36 +1,36 @@
-{{#> layout/main}}
-
-{{#content "main"}}
-  <main class="grid min-h-screen">
-    <div class="container mx-auto py-8">
-      <h1 class="text-3xl font-bold mb-8">My Jobs</h1>
-      {{#if jobs}}
-        <table class="table">
-          <thead>
+<main class="grid min-h-screen">
+  <div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-8">My Jobs</h1>
+    {{#if jobs}}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Job Name</th>
+            <th>Job Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each jobs}}
             <tr>
-              <th>Job Name</th>
-              <th>Job Description</th>
-              <th>Actions</th>
+              <td>{{this.job_name}}</td>
+              <td>{{this.job_description}}</td>
+              <td>
+                <a href="/edit-job/{{this.id}}" class="btn btn-primary">Edit</a>
+                <form
+                  action="/delete-job/{{this.id}}"
+                  method="POST"
+                  style="display: inline;"
+                >
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {{#each jobs}}
-              <tr>
-                <td>{{this.job_name}}</td>
-                <td>{{this.job_description}}</td>
-                <td>
-                  <a href="/edit-job/{{this.id}}" class="btn btn-primary">Edit</a>
-                  <form action="/delete-job/{{this.id}}" method="POST" style="display: inline;">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                  </form>
-                </td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      {{else}}
-        <p>No jobs found.</p>
-      {{/if}}
-    </div>
-  </main>
-{{/content}}
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>No jobs found.</p>
+    {{/if}}
+  </div>
+</main>
