@@ -96,6 +96,19 @@ router.get("/categories", withAuth, async (req, res) => {
   }
 });
 
+// get jobs posted by user
+router.get("/myjobs", withAuth, async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const jobs = await Job.findAll({ where: { job_user_id: userId } });
+
+      res.render("myjobs", { jobs });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Signup route
 router.get("/signup", async (req, res) => {
   try {
@@ -114,7 +127,6 @@ router.get("/signup", async (req, res) => {
 });
 
 // Login route
-
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
