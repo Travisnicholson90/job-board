@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
       job_category_id,
       job_user_id,
     } = req.body;
-    console.log('post-job', job_name);
+    console.log('post-job', job_name, job_description, job_suburb, job_date, job_time, job_duration, job_price, job_category_id, job_user_id);
     
     const newJob = await Job.create({
       job_name,

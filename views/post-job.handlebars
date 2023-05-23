@@ -17,6 +17,24 @@
     </div>
 
     <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="job-category">Job Category</label>
+      <select id="job-category" class="form-select" aria-label="Default select example">
+      <option selected>Categories</option>
+      <option value="1">Event Support</option>
+      <option value="2">Handyman Services</option>
+      <option value="3">General Labour</option>
+      <option value="4">Personal Assistance</option>
+      <option value="5">Pet Care</option>
+      <option value="6">Freelance Services</option>
+      <option value="7">Tutoring and Lessons</option>
+      <option value="8">Babysitting and Childcare</option>
+      <option value="9">Elderly Care</option>
+      <option value="10">Miscellaneous</option>
+    </select>
+      <p id="job-category-error"></p>
+    </div>
+
+    <div class="flex flex-col justify-start">
       <label class="text-textBlack text-3xl py-1" for="job-description">Job
         Description</label>
       <textarea class="w-full rounded-lg p-1 outline-none px-3"
