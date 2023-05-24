@@ -102,8 +102,7 @@ router.get("/myjobs", withAuth, async (req, res) => {
     const userId = req.session.user_id;
     const jobs = await Job.findAll({ where: { job_user_id: userId } });
 
-      res.render("myjobs", { jobs });
-
+    res.render("myjobs", { jobs });
   } catch (err) {
     res.status(500).json(err);
   }
