@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Job, JobCategory } = require("../../models");
+const path = require("path");
 
 router.post("/", async (req, res) => {
   try {

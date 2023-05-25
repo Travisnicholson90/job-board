@@ -1,6 +1,84 @@
 
   <div class="grid grid-cols-1 items-center w-3/4 mx-auto my-auto px-2 md:w-4/5 lg:w-2/5">
   <h2 class="text-4xl font-bold text-indigo-950 my-3">Create Job</h2>
+
+  <!-- Success message -->
+{{#if jobPosted}}
+<br>
+<div
+  id="success-alert"
+  class="p-4 mb-4 border rounded-lg text-indigo-950 border-indigo-950"
+  role="alert"
+>
+  <div class="flex items-center">
+    <svg
+      aria-hidden="true"
+      class="w-5 h-5 mr-2"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+    <span class="sr-only">Info</span>
+    <h2 class="text-lg font-medium">Job successfully posted!</h2>
+  </div>
+  <div class="mt-2 mb-4 text-sm">
+    You can view and edit your job add in My Jobs now.
+  </div>
+  <div class="flex">
+    <a
+      href="./myjobs"
+       class="mr-2 text-indigo-950 bg-transparent border border-indigo-950 hover:text-bgBlue hover:scale-110 focus:ring-4 focus:outline-none focus:ring-bgBlue font-medium rounded-lg text-xs px-3 py-1.5 text-center"
+    >My Jobs</a>
+    <a
+      href="/"
+      class="text-indigo-950 bg-transparent border border-indigo-950 hover:text-bgBlue hover:scale-110 focus:ring-4 focus:outline-none focus:ring-bgBlue font-medium rounded-lg text-xs px-3 py-1.5 text-center"
+    >Back to Homepage
+    </a>
+  </div>
+</div>
+<br>
+{{/if}}
+
+{{!-- Failed Alert --}}
+{{#if jobNotPosted}}
+  <br />
+  <div
+    id="failed-alert"
+    class="p-4 mx-auto mb-4 w-5/6 border rounded-lg text-indigo-950 border-indigo-950"
+    role="alert"
+  >
+    <div class="flex items-center">
+      <svg
+        aria-hidden="true"
+        class="w-5 h-5 mr-2"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      <span class="sr-only">Info</span>
+      <h2 class="text-lg font-medium">Failed to submit your job add!</h2>
+    </div>
+    <div class="mt-2 text-sm">
+      <p>
+        There was an error while submitting your job add. Please review your form and try again. 
+      </p>
+    </div>
+  </div>
+  <br />
+{{/if}}
+
   <form
     id="post-job-form"
     action=""
