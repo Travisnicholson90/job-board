@@ -8,9 +8,15 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
+    // Retrieve signupSuccess parameter from the query string if present
+    const signupSuccess = req.query.signupSuccess === "true";
+    // Get all job categories for the prospect dynamic pupulation of the list on the homepage
     const categories = await JobCategory.findAll();
-    res.render("home", { categories, loggedIn: req.session.loggedIn });
-    // res.sendFile(path.join(__dirname, "../views/home.html"));
+    res.render("home", {
+      categories,
+      signupSuccess,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -26,7 +32,12 @@ router.get("/categories/:id", withAuth, async (req, res) => {
       include: [
         {
           model: JobCategory,
+          attributes: ["job_category_name"],
           where: { id: categoryId },
+        },
+        {
+          model: User,
+          attributes: ["first_name", "last_name", "suburb", "email"],
         },
       ],
       order: [["created_at", "DESC"]],
@@ -36,7 +47,10 @@ router.get("/categories/:id", withAuth, async (req, res) => {
     );
 
     console.log(jobsByCategory);
-    res.render("categories", { jobsByCategory, loggedIn: req.session.loggedIn });
+    res.render("categories", {
+      jobsByCategory,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Cannot retrieve jobs based on category" });
@@ -85,8 +99,17 @@ router.get("/post-job", withAuth, async (req, res) => {
   try {
     // get categories for the dropdown
     const categories = await JobCategory.findAll();
+
+    // Retrieve the jobPosted and jobNotPosted query parameter if present:
+    const jobPosted = req.query.jobPosted === "true";
+    const jobNotPosted = req.query.jobNotPosted === "true";
     // Render the post-job page
-    res.render("post-job", { categories, loggedIn: req.session.loggedIn });
+    res.render("post-job", {
+      categories,
+      jobPosted,
+      jobNotPosted,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -110,8 +133,7 @@ router.get("/myjobs", withAuth, async (req, res) => {
     const userId = req.session.user_id;
     const jobs = await Job.findAll({ where: { job_user_id: userId } });
 
-      res.render("myjobs", { jobs });
-
+    res.render("myjobs", { jobs });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -125,9 +147,9 @@ router.get("/signup", async (req, res) => {
       res.redirect("/");
       return;
     }
+
     // Render the sign-up page
     res.render("signup");
-    //res.sendFile(path.join(__dirname, "../views/signup.html"));
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -141,9 +163,10 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
+  // Retrive the loginFailed query parameter if present
+  const loginFailed = req.query.loginFailed === "true";
   // Otherwise, render the 'login' template
-  res.render("login");
-  // res.sendFile(path.join(__dirname, "../views/login.html"));
+  res.render("login", { loginFailed });
 });
 
 // Logout route
