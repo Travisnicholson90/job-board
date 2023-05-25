@@ -159,8 +159,6 @@ const signUpForm = async (event) => {
     window.location.replace("/?signupSuccess=true");
   } else {
     console.log("account not created");
-    // Redirect back to the signup page with a query parameter after failing to signup
-    window.location.replace("/signup?signupFailed=true");
   }
 };
 

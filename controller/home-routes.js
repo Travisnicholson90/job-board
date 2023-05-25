@@ -31,7 +31,12 @@ router.get("/categories/:id", withAuth, async (req, res) => {
       include: [
         {
           model: JobCategory,
+          attributes: ["job_category_name"],
           where: { id: categoryId },
+        },
+        {
+          model: User,
+          attributes: ["first_name", "last_name", "suburb", "email"],
         },
       ],
       order: [["created_at", "DESC"]],
@@ -134,10 +139,9 @@ router.get("/signup", async (req, res) => {
       res.redirect("/");
       return;
     }
-    // Retrive the signupFailed query parameter if present
-    const signupFailed = req.query.signupFailed === "true";
+
     // Render the sign-up page
-    res.render("signup", { signupFailed });
+    res.render("signup");
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
