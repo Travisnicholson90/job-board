@@ -3,11 +3,11 @@
   <h2 class="text-4xl font-bold text-indigo-950 my-3">Create Job</h2>
 
   <!-- Success message -->
-{{#if jobPosted}}
+{{!-- {{#if jobPosted}} --}}
 <br>
 <div
   id="alert-additional-content-1"
-  class="p-4 mb-4 border rounded-lg"
+  class="p-4 mb-4 border rounded-lg text-indigo-950 border-indigo-950"
   role="alert"
 >
   <div class="flex items-center">
@@ -33,17 +33,17 @@
   <div class="flex">
     <a
       href="./myjobs"
-       class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
+       class="mr-2 text-indigo-950 bg-transparent border border-indigo-950 hover:text-bgBlue hover:scale-110 focus:ring-4 focus:outline-none focus:ring-bgBlue font-medium rounded-lg text-xs px-3 py-1.5 text-center"
     >My Jobs</a>
     <a
       href="/"
-      class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
+      class="text-indigo-950 bg-transparent border border-indigo-950 hover:text-bgBlue hover:scale-110 focus:ring-4 focus:outline-none focus:ring-bgBlue font-medium rounded-lg text-xs px-3 py-1.5 text-center"
     >Back to Homepage
     </a>
   </div>
 </div>
 <br>
-{{/if}}
+{{!-- {{/if}} --}}
 
   <form
     id="post-job-form"
