@@ -6,7 +6,6 @@ const { Job, JobCategory, User } = require("../models");
 
 const withAuth = require("../utils/auth");
 
-
 router.get("/", async (req, res) => {
   try {
     const categories = await JobCategory.findAll();
@@ -15,6 +14,32 @@ router.get("/", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
+  }
+});
+
+// Jobs by categories route
+
+router.get("/categories/:id", withAuth, async (req, res) => {
+  try {
+    const categoryId = req.params.id;
+    const jobsByCategoryData = await Job.findAll({
+      include: [
+        {
+          model: JobCategory,
+          where: { id: categoryId },
+        },
+      ],
+      order: [["created_at", "DESC"]],
+    });
+    const jobsByCategory = jobsByCategoryData.map((job) =>
+      job.get({ plain: true })
+    );
+
+    console.log(jobsByCategory);
+    res.render("categories", { jobsByCategory, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Cannot retrieve jobs based on category" });
   }
 });
 
@@ -46,6 +71,8 @@ router.get("/job-board", withAuth, async (req, res) => {
 
     console.log(jobsDateFormatted);
     
+    console.log(jobs);
+
     res.render("job-board", { jobs, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);
@@ -77,6 +104,19 @@ router.get("/categories", withAuth, async (req, res) => {
   }
 });
 
+// get jobs posted by user
+router.get("/myjobs", withAuth, async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const jobs = await Job.findAll({ where: { job_user_id: userId } });
+
+      res.render("myjobs", { jobs });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Signup route
 router.get("/signup", async (req, res) => {
   try {
@@ -95,7 +135,6 @@ router.get("/signup", async (req, res) => {
 });
 
 // Login route
-
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
