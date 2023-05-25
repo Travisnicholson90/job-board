@@ -201,8 +201,9 @@ const loginForm = async (event) => {
     console.log("logged in");
     location.reload(); // Refresh the page
   } else {
-    alert("Cannot Login at this time.");
     console.log("login error");
+    // Redirect back to the login page with a query parameter after failing to login
+    window.location.replace("/login?loginFailed=true");
   }
 };
 

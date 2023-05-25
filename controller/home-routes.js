@@ -151,9 +151,10 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
+  // Retrive the loginFailed query parameter if present
+  const loginFailed = req.query.loginFailed === "true";
   // Otherwise, render the 'login' template
-  res.render("login");
-  // res.sendFile(path.join(__dirname, "../views/login.html"));
+  res.render("login", { loginFailed });
 });
 
 // Logout route
