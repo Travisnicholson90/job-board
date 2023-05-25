@@ -41,7 +41,7 @@ router.get("/categories/:id", withAuth, async (req, res) => {
     );
 
     console.log(jobsByCategory);
-    res.render("jobs", { jobsByCategory, loggedIn: req.session.loggedIn });
+    res.render("categories", { jobsByCategory, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Cannot retrieve jobs based on category" });

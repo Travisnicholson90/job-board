@@ -1,6 +1,18 @@
-<div>
+<section class="grid items-center justify-center">
   <h1>Categories</h1>
-  {{#each categories as |category|}}
-    <p>{{> categories-details}}</p>
+  {{#each jobsByCategory as |category|}}
+    <div class="grid grid-cols-1 py-10">
+      <h2>{{category.job_name}}</h2>
+      <p>{{category.job_description}}</p>
+      <p>{{category.job_suburb}}</p>
+    <div class="grid grid-cols-2">
+      <p>{{category.job_date}}</p>
+      <p>{{category.job_time}}</p>
+    </div>
+    <div class="grid grid-cols-2">
+      <p>{{category.job_duration}} Hour</p>
+      <p>${{category.job_price}}</p>
+    </div>
+    </div>
   {{/each}}
-</div>
+</section>
