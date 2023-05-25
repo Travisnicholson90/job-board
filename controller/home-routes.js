@@ -41,7 +41,10 @@ router.get("/categories/:id", withAuth, async (req, res) => {
     );
 
     console.log(jobsByCategory);
-    res.render("categories", { jobsByCategory, loggedIn: req.session.loggedIn });
+    res.render("categories", {
+      jobsByCategory,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Cannot retrieve jobs based on category" });
@@ -84,12 +87,14 @@ router.get("/post-job", withAuth, async (req, res) => {
     // get categories for the dropdown
     const categories = await JobCategory.findAll();
 
-    // Retrieve the jobPosted query parameter if present:
+    // Retrieve the jobPosted and jobNotPosted query parameter if present:
     const jobPosted = req.query.jobPosted === "true";
+    const jobNotPosted = req.query.jobNotPosted === "true";
     // Render the post-job page
     res.render("post-job", {
       categories,
       jobPosted,
+      jobNotPosted,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {

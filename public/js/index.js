@@ -84,11 +84,12 @@ const postJobForm = async (event) => {
 
   if (response.ok) {
     console.log("job submitted");
-    // Redirect to the same page with a query parameter
+    // Redirect to the same page with a query parameter jobPosted
     window.location.replace("/post-job?jobPosted=true");
   } else {
-    alert("Failed to submit job.");
     console.log("job not submitted");
+    // Redirect to the same page with a query parameter jobNotPosted
+    window.location.replace("/post-job?jobNotPosted=true");
   }
 };
 $("#post-job-form").submit(postJobForm);
