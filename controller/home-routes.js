@@ -139,6 +139,23 @@ router.get("/myjobs", withAuth, async (req, res) => {
   }
 });
 
+// get jobs posted by user
+router.get("/edit-job/:id", withAuth, async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const jobId = req.params.id
+    const jobs = await Job.findAll({ where: { job_user_id: userId } });
+    console.log(jobs);
+    console.log('jobId-----', jobId);
+    
+    res.render("edit-job", { jobs, jobId });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 // Signup route
 router.get("/signup", async (req, res) => {
   try {
