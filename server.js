@@ -26,6 +26,10 @@ const sess = {
   }),
 };
 
+// Set up handlebars
+const hbs = exphbs.create({});
+
+
 app.use(session(sess));
 
 app.engine("handlebars", hbs.engine);
