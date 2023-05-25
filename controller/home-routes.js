@@ -134,10 +134,10 @@ router.get("/signup", async (req, res) => {
       res.redirect("/");
       return;
     }
-
+    // Retrive the signupFailed query parameter if present
+    const signupFailed = req.query.signupFailed === "true";
     // Render the sign-up page
-    res.render("signup");
-    //res.sendFile(path.join(__dirname, "../views/signup.html"));
+    res.render("signup", { signupFailed });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

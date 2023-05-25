@@ -154,13 +154,13 @@ const signUpForm = async (event) => {
   });
 
   if (response.ok) {
-    alert("Your account has been created!");
     console.log("account created");
     // Redirect to the homepage with a query parameter after successful signup
     window.location.replace("/?signupSuccess=true");
   } else {
-    alert("Failed to create account.");
     console.log("account not created");
+    // Redirect back to the signup page with a query parameter after failing to signup
+    window.location.replace("/signup?signupFailed=true");
   }
 };
 

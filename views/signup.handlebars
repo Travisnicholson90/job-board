@@ -1,33 +1,100 @@
+{{! Failed Alert }}
+{{#if signupFailed}}
+  <br />
+  <div
+    id="signupFailed-alert"
+    class="p-4 mx-auto mb-4 w-5/6 border rounded-lg text-indigo-950 border-indigo-950"
+    role="alert"
+  >
+    <div class="flex items-center">
+      <svg
+        aria-hidden="true"
+        class="w-5 h-5 mr-2"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      <span class="sr-only">Info</span>
+      <h2 class="text-lg font-medium">Failed to create account!</h2>
+    </div>
+    <div class="mt-2 text-sm">
+      <p>
+        There was an error while creating your account. Please review your form
+        and try again.
+      </p>
+    </div>
+  </div>
+  <br />
+{{/if}}
 
 <form id="sign-up-form" class="flex mx-auto my-auto" action="">
-    <div class="flex flex-col w-96 mx-auto">
-        <h2 class="text-4xl font-bold text-indigo-950 my-3">Sign Up</h2>
-        <div class="flex flex-col justify-start">
-            <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
-            <input class="w-full rounded-lg p-1 outline-none ps-3" id="signup-first-name" type="text" name="first-name">
-            <p id="signup-firstname-error"></p>
-        </div>
-        <div class="flex flex-col justify-start">
-            <label class="text-textBlack text-3xl py-1" for="last-name">Last Name</label>
-            <input class="w-full rounded-lg p-1 outline-none ps-3" id="signup-last-name" type="text" name="last-name">
-            <p id="signup-lastname-error"></p>
-        </div>
-        <div class="flex flex-col justify-start">
-            <label class="text-textBlack text-3xl py-1" for="email">Email</label>
-            <input class="w-full rounded-lg p-1 outline-none ps-3" id="signup-email" type="text" name="email">
-            <p id="signup-email-error"></p>
-        </div>
-        <div class="flex flex-col justify-start">
-            <label class="text-textBlack text-3xl py-1" for="suburb">Suburb</label>
-            <input class="w-full rounded-lg p-1 outline-none ps-3" id="signup-suburb" type="text" name="suburb">
-            <p id="signup-suburb-error"></p>
-        </div>
-        <div class="flex flex-col justify-start ">
-            <label class="text-textBlack text-3xl py-1" for="password">Password</label>
-            <input class="w-full rounded-lg p-1 outline-none ps-3" id="signup-password" type="
-            password" name="password">
-            <p id="signup-password-error"></p>
-        </div>
-            <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-bgBlue rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-5" type="submit" role="button">Sign Up</button>
-        </div>
+  <div class="flex flex-col w-96 mx-auto">
+    <h2 class="text-4xl font-bold text-indigo-950 my-3">Sign Up</h2>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="first-name">First Name</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="signup-first-name"
+        type="text"
+        name="first-name"
+      />
+      <p id="signup-firstname-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="last-name">Last Name</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="signup-last-name"
+        type="text"
+        name="last-name"
+      />
+      <p id="signup-lastname-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="email">Email</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="signup-email"
+        type="text"
+        name="email"
+      />
+      <p id="signup-email-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="suburb">Suburb</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="signup-suburb"
+        type="text"
+        name="suburb"
+      />
+      <p id="signup-suburb-error"></p>
+    </div>
+    <div class="flex flex-col justify-start">
+      <label
+        class="text-textBlack text-3xl py-1"
+        for="password"
+      >Password</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="signup-password"
+        type="
+            password"
+        name="password"
+      />
+      <p id="signup-password-error"></p>
+    </div>
+    <button
+      id="btn"
+      class="flex justify-self-start w-32 py-3 p-3 bg-bgBlue rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-5"
+      type="submit"
+      role="button"
+    >Sign Up</button>
+  </div>
 </form>
