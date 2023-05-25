@@ -41,7 +41,6 @@ router.put("/:id", async (req, res) => {
 
     // Fetch the updated job
     const updatedJob = await Job.findByPk(id);
-
     res.status(200).json(updatedJob);
   } catch (err) {
     console.error(err);

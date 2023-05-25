@@ -1,0 +1,116 @@
+<div class="grid grid-cols-1 items-center w-3/4 mx-auto my-auto px-2 md:w-4/5 lg:w-2/5">
+  <h2 class="text-4xl font-bold text-indigo-950 my-3">Create Job</h2>
+  <form
+    id="post-job-form"
+    action=""
+    data-id="{{jobs.dataValues.id}}"
+  >
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="job-name">Job Name</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="edit-job-name"
+        type="text"
+        name="job-name"
+      />
+      <p id="edit-job-name-error"></p>
+    </div>
+
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="job-category">Job Category</label>
+      <select id="edit-job-category" class="form-select" aria-label="Default select example">
+      <option selected>Categories</option>
+      <option value="1">Event Support</option>
+      <option value="2">Handyman Services</option>
+      <option value="3">General Labour</option>
+      <option value="4">Personal Assistance</option>
+      <option value="5">Pet Care</option>
+      <option value="6">Freelance Services</option>
+      <option value="7">Tutoring and Lessons</option>
+      <option value="8">Babysitting and Childcare</option>
+      <option value="9">Elderly Care</option>
+      <option value="10">Miscellaneous</option>
+    </select>
+      <p id="edit-job-category-error"></p>
+    </div>
+
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="job-description">Job
+        Description</label>
+      <textarea class="w-full rounded-lg p-1 outline-none px-3"
+        id="edit-job-description"
+        type="text"
+        name="job-description"
+       rows="5"
+       cols="10"
+       >
+
+      </textarea>
+      <p id="edit-description-error"></p>
+    </div>
+    
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="location">Suburb</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="edit-suburb"
+        type="text"
+      />
+      <p id="edit-suburb-error"></p>
+    </div>
+
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="date">Date</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="edit-date"
+        type="date"
+        name="date"
+      />
+      <p id="edit-date-error"></p>
+    </div>
+    
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="date">Start Time</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="edit-start-time"
+        type="time"
+        name="time"
+      />
+      <p id="edit-start-time-error"></p>
+    </div>
+    
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="Est Duration">Est
+        Duration</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="edit-duration"
+        type="number"
+        name="Est Duration"
+      />
+      <p id="edit-duration-error"></p>
+    </div>
+    
+    <div class="flex flex-col justify-start">
+      <label class="text-textBlack text-3xl py-1" for="Price">Price</label>
+      <input
+        class="w-full rounded-lg p-1 outline-none ps-3"
+        id="edit-price"
+        type="number"
+        name="Price"
+      />
+      <p id="edit-price-error"></p>
+      {{#if jobId}}
+      <input class="absolute hidden" id="jobId" value="{{jobId}}" class="" type="text">
+      {{/if}}
+    </div>
+    <button
+      class="bg-bgBlue my-3 py-3 md:w-3/5 w-3/5 lg:w-2/5 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200"
+      type="submit"
+      role="button"
+    >Post Job</button>
+  </div>
+</form>
+</div>

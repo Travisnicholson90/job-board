@@ -11,12 +11,12 @@
           </tr>
         </thead>
         <tbody>
-          {{#each jobs}}
+          {{#each jobs as |job|}}
             <tr>
-              <td>{{this.job_name}}</td>
-              <td>{{this.job_description}}</td>
+              <td class="text-black text-2xl">{{job.dataValues.job_name}}</td>
+              <td>{{job.dataValues.job_description}}</td>
               <td>
-                <a href="/edit-job/{{this.id}}" class="btn btn-primary">Edit</a>
+                <a href="/edit-job/{{job.id}}" class="btn btn-primary">Edit</a>
                 <form
                   action="/delete-job/{{this.id}}"
                   method="POST"
@@ -25,7 +25,6 @@
                   <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
               </td>
-            </tr>
           {{/each}}
         </tbody>
       </table>

@@ -5,6 +5,85 @@ navToggle.addEventListener("click", () => {
   navbar.classList.toggle("navbar-show");
 });
 
+const editJobForm = async (event) => {
+  event.preventDefault();
+  
+    const editJobName = $("#edit-job-name").val();
+    const editJobCategory = $('#edit-job-category').val();
+    const editJobDescription = $("#edit-job-description").val();
+    const editSuburb = $("#edit-suburb").val();
+    const editDate = $("#edit-date").val();
+    const editTime = $("#edit-start-time").val();
+    const editDuration = $("#edit-duration").val(); 
+    const editPrice = $("#edit-price").val(); 
+    const jobId = $('#job-id').val()
+    
+    if (editJobName === '') {
+        $("#job-name-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (editJobCategory === '') {
+      $('#job-category-error').text("Please select a job category!")
+      .addClass("text-red-700 italic text-sm");
+    }
+
+    if (editJobDescription === '') {
+        $("#description-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (editSuburb === '') {
+        $("#suburb-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (editDate === '') {
+        $("#date-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (editTime === '') {
+        $("#start-time-error").text("Please enter a start time!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (editPrice === '') {
+        $("#price-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+    if (editDuration === '') {
+        $("#duration-error").text("Please enter your first name!")
+        .addClass("text-red-700 italic text-sm");
+    }
+ 
+    const updateJobData = {
+        job_name: editJobName,
+        job_category_id: editJobCategory,
+        job_description: editJobDescription,
+        job_suburb: editSuburb,
+        job_date: editDate,
+        job_time: editTime,
+        job_duration: editDuration,
+        job_price: editPrice,
+    };
+
+    console.log(updateJobData);
+
+    const response = await fetch(`/api/job-post/15`, {
+        method: "PUT",
+        body: JSON.stringify(updateJobData),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (response.ok) {
+        alert("Your job has been submitted!");
+        console.log("job submitted");
+    } else {
+        alert("Failed to submit job.");
+        console.log("job not submitted");
+    }
+}
+$("#post-job-form").submit(editJobForm);
+
+
 const postJobForm = async (event) => {
   event.preventDefault();
 

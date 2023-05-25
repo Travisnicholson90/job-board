@@ -8,6 +8,9 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const categories = await JobCategory.findAll();
+    const cat = categories.map((cat) => cat.get({plain: true}))
+    console.log(cat)
+    
     res.render("home", { categories, loggedIn: req.session.loggedIn });
     // res.sendFile(path.join(__dirname, "../views/home.html"));
   } catch (err) {
@@ -101,13 +104,31 @@ router.get("/myjobs", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
     const jobs = await Job.findAll({ where: { job_user_id: userId } });
-
+    console.log(jobs);
+    
       res.render("myjobs", { jobs });
 
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// get jobs posted by user
+router.get("/edit-job/:id", withAuth, async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const jobId = req.params.id
+    const jobs = await Job.findAll({ where: { job_user_id: userId } });
+    console.log(jobs);
+    console.log('jobId-----', jobId);
+    
+    res.render("edit-job", { jobs, jobId });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 // Signup route
 router.get("/signup", async (req, res) => {
