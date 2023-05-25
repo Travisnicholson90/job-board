@@ -9,25 +9,31 @@
     {{job.id}}
 </span>
 
-<h2 class="text-textBlack text-3xl py-1">
+<h2 class="text-textBlack text-3xl py-1 underline">
     {{job.job_name}}
 </h2>
 <p class="text-textBlack text-xl py-1"> 
     {{job.job_description}}
 </p>
-<p class="text-textBlack text-l py-1">
-    {{job.job_suburb}}
-</p>
+<div class="grid grid-cols-4">
+    <p class="text-textBlack text-xl py-1">
+        {{job.job_suburb}}
+    </p>
+    <p></p>
+    <p></p>
+    <p class="text-center bg-bgDarkBlue w-20 rounded-2xl text-white text-3xl hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">{{job.job_price}}</p>
+</div>
+
 <div class="grid grid-cols-2">
-    <p> {{job.job_date}} </p>
-    <p> {{job.job_time}} </p>
+    <p class="text-textBlack text-xl py-1"> {{job.job_date}} </p>
+    <p class="text-textBlack text-xl py-1"> {{job.job_time}} </p>
 </div>
 <div class="grid grid-cols-2">
-    <p> {{job.job_duration}} hours </p>
-    <p class="relative flex text-xl font-bold justify-self-start">$ {{job.job_price}} </p>
+    <p class="text-textBlack text-xl py-1"> {{job.job_duration}} hours </p>
+    <p></p>
 </div>
 <br>
-<h2 class="font-bold">
+<h2 class="font-bold text-textBlack text-xl py-1">
     Posted By: {{job.user.first_name}}
 </h2>
 

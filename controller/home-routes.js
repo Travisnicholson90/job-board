@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const path = require("path");
+const dayjs = require('dayjs')
 
 const { Job, JobCategory, User } = require("../models");
 
@@ -38,7 +39,12 @@ router.get("/job-board", withAuth, async (req, res) => {
     // Serialize data so the template is readable
     const jobs = jobData.map((job) => job.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
-    console.log(jobs);
+    const jobsDateFormatted = jobs.map(job => {
+      job.formattedDateTime = dayjs(jobs[0].job_date).format('DD-MM-YYYY') + ' ' + jobs[0].job_time;
+      return job;
+    })
+
+    console.log(jobsDateFormatted);
     
     res.render("job-board", { jobs, loggedIn: req.session.loggedIn });
   } catch (err) {
