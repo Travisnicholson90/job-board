@@ -155,7 +155,8 @@ const signUpForm = async (event) => {
   if (response.ok) {
     alert("Your account has been created!");
     console.log("account created");
-    location.reload(); // Refresh the page
+    // Redirect to the homepage with a query parameter after successful signup
+    window.location.replace("/?signupSuccess=true");
   } else {
     alert("Failed to create account.");
     console.log("account not created");

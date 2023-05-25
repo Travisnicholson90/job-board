@@ -7,9 +7,15 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
+    // Retrieve signupSuccess parameter from the query string if present
+    const signupSuccess = req.query.signupSuccess === "true";
+    // Get all job categories for the prospect dynamic pupulation of the list on the homepage
     const categories = await JobCategory.findAll();
-    res.render("home", { categories, loggedIn: req.session.loggedIn });
-    // res.sendFile(path.join(__dirname, "../views/home.html"));
+    res.render("home", {
+      categories,
+      signupSuccess,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -123,6 +129,7 @@ router.get("/signup", async (req, res) => {
       res.redirect("/");
       return;
     }
+
     // Render the sign-up page
     res.render("signup");
     //res.sendFile(path.join(__dirname, "../views/signup.html"));
