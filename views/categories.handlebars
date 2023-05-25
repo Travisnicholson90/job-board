@@ -1,6 +1,34 @@
 <section class="grid items-center justify-center">
-  <h1>Categories</h1>
+  <h1 class="text-4xl font-bold text-indigo-950 my-3 underline">Categories</h1>
   {{#each jobsByCategory as |category|}}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c43cd62ac8bd6bea27d79841b4305f656c089439
+  <div class="grid grid-cols-1 py-1">
+    <h2 class="text-textBlack text-3xl py-1 underline">
+      {{category.job_name}}
+    </h2>
+    <p class="text-textBlack text-xl py-1">
+      {{category.job_description}}
+    </p>
+    <div class="grid grid-cols-4">
+      <p class="text-textBlack text-xl py-1">{{category.job_suburb}}</p>
+      <p></p>
+      <p></p>
+      <p
+        class="text-center bg-bgDarkBlue w-20 rounded-xl text-white text-3xl hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">
+        ${{category.job_price}}</p>
+    </div>
+    <div class="grid grid-cols-2">
+      <p class="text-textBlack text-xl py-1">{{format_date category.job_date}}</p>
+      <p class="text-textBlack text-xl py-1">{{format_time category.job_time}}</p>
+    </div>
+    <div class="grid grid-cols-2">
+      <p class="font-bold text-textBlack text-xl py-1">{{category.job_duration}} Hours</p>
+<<<<<<< HEAD
+=======
+=======
     <div class="grid grid-cols-1 py-10">
       <h2>{{category.job_name}}</h2>
       <p>{{category.job_description}}</p>
@@ -13,6 +41,15 @@
         <p>{{category.job_duration}} Hour</p>
         <p>${{category.job_price}}</p>
       </div>
+>>>>>>> main
+>>>>>>> c43cd62ac8bd6bea27d79841b4305f656c089439
     </div>
+    <h2 class="font-bold text-textBlack text-xl py-1">
+      Posted By: {{category.user.first_name}}
+    </h2>
+    <h2 class="font-bold text-textBlack text-xl py-1">
+      Contact: {{category.user.email}}
+    </h2>
+  </div>
   {{/each}}
 </section>
