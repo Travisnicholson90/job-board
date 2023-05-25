@@ -10,82 +10,87 @@ const postJobForm = async (event) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const jobName = $("#job-name").val();
-    const jobCategory = $('#job-category').val();
-    const jobDescription = $("#job-description").val();
-    const suburb = $("#suburb").val();
-    const date = $("#date").val();
-    const time = $("#start-time").val();
-    const duration = $("#duration").val(); 
-    const price = $("#price").val(); 
+  const jobName = $("#job-name").val();
+  const jobCategory = $("#job-category").val();
+  const jobDescription = $("#job-description").val();
+  const suburb = $("#suburb").val();
+  const date = $("#date").val();
+  const time = $("#start-time").val();
+  const duration = $("#duration").val();
+  const price = $("#price").val();
 
-
- 
-    if (jobName === '') {
-        $("#job-name-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (jobCategory === '') {
-      $('#job-category-error').text("Please select a job category!")
+  if (jobName === "") {
+    $("#job-name-error")
+      .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
-    }
+  }
+  if (jobCategory === "") {
+    $("#job-category-error")
+      .text("Please select a job category!")
+      .addClass("text-red-700 italic text-sm");
+  }
 
-    if (jobDescription === '') {
-        $("#description-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (suburb === '') {
-        $("#suburb-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (date === '') {
-        $("#date-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (time === '') {
-        $("#start-time-error").text("Please enter a start time!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (price === '') {
-        $("#price-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
-    if (duration === '') {
-        $("#duration-error").text("Please enter your first name!")
-        .addClass("text-red-700 italic text-sm");
-    }
- 
+  if (jobDescription === "") {
+    $("#description-error")
+      .text("Please enter your first name!")
+      .addClass("text-red-700 italic text-sm");
+  }
+  if (suburb === "") {
+    $("#suburb-error")
+      .text("Please enter your first name!")
+      .addClass("text-red-700 italic text-sm");
+  }
+  if (date === "") {
+    $("#date-error")
+      .text("Please enter your first name!")
+      .addClass("text-red-700 italic text-sm");
+  }
+  if (time === "") {
+    $("#start-time-error")
+      .text("Please enter a start time!")
+      .addClass("text-red-700 italic text-sm");
+  }
+  if (price === "") {
+    $("#price-error")
+      .text("Please enter your first name!")
+      .addClass("text-red-700 italic text-sm");
+  }
+  if (duration === "") {
+    $("#duration-error")
+      .text("Please enter your first name!")
+      .addClass("text-red-700 italic text-sm");
+  }
 
+  const jobData = {
+    job_name: jobName,
+    job_description: jobDescription,
+    job_suburb: suburb,
+    job_date: date,
+    job_time: time,
+    job_duration: duration,
+    job_price: price,
+    job_category_id: jobCategory,
+  };
 
-    const jobData = {
-        job_name: jobName,
-        job_description: jobDescription,
-        job_suburb: suburb,
-        job_date: date,
-        job_time: time,
-        job_duration: duration,
-        job_price: price,
-        job_category_id: jobCategory,
-    };
+  console.log(jobData);
 
-    console.log(jobData);
+  const response = await fetch("/api/job-post", {
+    method: "POST",
+    body: JSON.stringify(jobData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-    const response = await fetch("/api/job-post", {
-        method: "POST",
-        body: JSON.stringify(jobData),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
-
-    if (response.ok) {
-        alert("Your job has been submitted!");
-        console.log("job submitted");
-    } else {
-        alert("Failed to submit job.");
-        console.log("job not submitted");
-    }
-}
+  if (response.ok) {
+    console.log("job submitted");
+    // Redirect to the same page with a query parameter
+    window.location.replace("/post-job?jobPosted=true");
+  } else {
+    alert("Failed to submit job.");
+    console.log("job not submitted");
+  }
+};
 $("#post-job-form").submit(postJobForm);
 
 const signUpForm = async (event) => {

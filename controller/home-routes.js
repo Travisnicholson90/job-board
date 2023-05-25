@@ -77,8 +77,15 @@ router.get("/post-job", withAuth, async (req, res) => {
   try {
     // get categories for the dropdown
     const categories = await JobCategory.findAll();
+
+    // Retrieve the jobPosted query parameter if present:
+    const jobPosted = req.query.jobPosted === "true";
     // Render the post-job page
-    res.render("post-job", { categories, loggedIn: req.session.loggedIn });
+    res.render("post-job", {
+      categories,
+      jobPosted,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
