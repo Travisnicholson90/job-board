@@ -7,13 +7,17 @@ const routes = require("./controller");
 const sequelize = require("./config/connection");
 const task = require("./cronjobs/deleteExpiredJobAds.js");
 const helpers = require("./utils/helper");
+const crypto = require("crypto");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Generate a secure secret key
+const secret = crypto.randomBytes(64).toString("hex");
+
 // Set up sessions and connect to Sequelize db
 const sess = {
-  secret: "Super secret secret",
+  secret: secret,
   cookie: {
     maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
     httpOnly: true,
