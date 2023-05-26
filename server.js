@@ -6,11 +6,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const routes = require("./controller");
 const sequelize = require("./config/connection");
 const task = require("./cronjobs/deleteExpiredJobAds.js");
-<<<<<<< HEAD
-const { helpers } = require("./utils/helper");
-=======
 const helpers = require("./utils/helper");
->>>>>>> main
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,21 +27,15 @@ const sess = {
   }),
 };
 
-<<<<<<< HEAD
-// Set up handlebars
-=======
 // Set up handlebars helper
->>>>>>> main
 const hbs = exphbs.create({ helpers });
-
 
 app.use(session(sess));
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
