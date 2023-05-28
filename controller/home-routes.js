@@ -133,7 +133,7 @@ router.get("/myjobs", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
     const jobs = await Job.findAll({ where: { job_user_id: userId } });
-    
+
     console.log(jobs);
     res.render("myjobs", { jobs });
   } catch (err) {
@@ -144,13 +144,21 @@ router.get("/myjobs", withAuth, async (req, res) => {
 // Edit Job route - get the job to edit
 router.get("/edit-job/:id", withAuth, async (req, res) => {
   try {
+    // Retrieve the jobUpdated query parameter if present:
+    const jobUpdated = req.query.jobUpdated === "true";
+
     const userId = req.session.user_id;
     const jobId = req.params.id;
     const jobs = await Job.findAll({ where: { job_user_id: userId } });
     console.log(jobs);
     console.log("jobId-----", jobId);
 
-    res.render("edit-job", { jobs, jobId });
+    res.render("edit-job", {
+      jobs,
+      jobId,
+      jobUpdated,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
