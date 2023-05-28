@@ -90,6 +90,8 @@ const editJobForm = async (event) => {
   if (response.ok) {
     alert("Your job has been submitted!");
     console.log("job submitted");
+    // Redirect to the same page with a query parameter jobUpdated
+    window.location.replace("/edit-job/?jobUpdated=true");
   } else {
     alert("Failed to submit job.");
     console.log("job not submitted");
