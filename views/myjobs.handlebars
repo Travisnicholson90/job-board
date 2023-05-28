@@ -16,20 +16,22 @@
               <td class="text-black text-2xl">{{job.dataValues.job_name}}</td>
               <td>{{job.dataValues.job_description}}</td>
               <td>
-                <a href="/edit-job/{{job.id}}" class="btn btn-primary">Edit</a>
+                <a href="/edit-job/{{job.dataValues.id}}" class="btn btn-primary">Edit</a>
                 <form
-                  action="/delete-job/{{this.id}}"
-                  method="POST"
+                
                   style="display: inline;"
-                >
-                  <button type="submit" class="btn btn-danger">Delete</button>
+                  id="delete-job-form"
+                > 
+                <a href="/myjobs">
+                  <button id="delete-job" value="{{job.dataValues.id}}" type="submit" class="btn btn-danger">Delete</button>
+                </a>
                 </form>
               </td>
           {{/each}}
         </tbody>
       </table>
     {{else}}
-      <p>No jobs found.</p>
+      <p class="text-2xl text-bgBlue">No jobs found...</p>
     {{/if}}
   </div>
 </main>

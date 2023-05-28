@@ -307,3 +307,30 @@ const loginForm = async (event) => {
 };
 
 $("#login-form").submit(loginForm);
+
+const deleteJobs = async (event) => {
+  event.preventDefault();
+
+  const deleteJobId = $("#delete-job").val();
+  console.log(deleteJobId);
+
+  const askBeforeDelete = confirm("Are you sure you want to delete this job?");
+  if (!askBeforeDelete) {
+    return;
+  }
+
+  const response = await fetch(`/api/job-post/${deleteJobId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    console.log("job deleted");
+    // Redirect to the same page with a query parameter jobPosted
+    window.location.replace("/myjobs");
+  } else {
+    console.log("job not deleted");
+    // Redirect to the same page with a query parameter jobNotPosted
+    window.location.replace("/myjobs");
+  }
+};
+$("#delete-job-form").submit(deleteJobs);
