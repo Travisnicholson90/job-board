@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const path = require("path");
-const dayjs = require('dayjs')
+const dayjs = require("dayjs");
 
 const { Job, JobCategory, User } = require("../models");
 
 const withAuth = require("../utils/auth");
 
+// Home route
 router.get("/", async (req, res) => {
   try {
     // Retrieve signupSuccess parameter from the query string if present
@@ -24,7 +25,6 @@ router.get("/", async (req, res) => {
 });
 
 // Jobs by categories route
-
 router.get("/categories/:id", withAuth, async (req, res) => {
   try {
     const categoryId = req.params.id;
@@ -78,13 +78,14 @@ router.get("/job-board", withAuth, async (req, res) => {
     // Serialize data so the template is readable
     const jobs = jobData.map((job) => job.get({ plain: true }));
     // Pass serialized data into Handlebars.js template
-    const jobsDateFormatted = jobs.map(job => {
-      job.formattedDateTime = dayjs(jobs[0].job_date).format('DD-MM-YYYY') + ' ' + jobs[0].job_time;
+    const jobsDateFormatted = jobs.map((job) => {
+      job.formattedDateTime =
+        dayjs(jobs[0].job_date).format("DD-MM-YYYY") + " " + jobs[0].job_time;
       return job;
-    })
+    });
 
     console.log(jobsDateFormatted);
-    
+
     console.log(jobs);
 
     res.render("job-board", { jobs, loggedIn: req.session.loggedIn });
@@ -127,7 +128,7 @@ router.get("/categories", withAuth, async (req, res) => {
   }
 });
 
-// get jobs posted by user
+// My Jobs route
 router.get("/myjobs", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
@@ -139,22 +140,20 @@ router.get("/myjobs", withAuth, async (req, res) => {
   }
 });
 
-// get jobs posted by user
+// Edit Job route - get the job to edit
 router.get("/edit-job/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const jobId = req.params.id
+    const jobId = req.params.id;
     const jobs = await Job.findAll({ where: { job_user_id: userId } });
     console.log(jobs);
-    console.log('jobId-----', jobId);
-    
-    res.render("edit-job", { jobs, jobId });
+    console.log("jobId-----", jobId);
 
+    res.render("edit-job", { jobs, jobId });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 // Signup route
 router.get("/signup", async (req, res) => {

@@ -4,7 +4,7 @@ const signupRoutes = require("./signup-routes");
 const jobPostRoutes = require("./job-post-routes");
 const myJobsRoutes = require("./myjobs-routes");
 
-// create
+// create routes for login, signup, job-post, myjobs
 router.use("/login", loginRoutes);
 router.use("/signup", signupRoutes);
 router.use("/job-post", jobPostRoutes);

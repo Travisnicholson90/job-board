@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Job, User } = require("../../models");
-// const withAuth = require("../../utils/auth");
 
+// update job
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -30,7 +30,7 @@ router.put("/:id", async (req, res) => {
         where: {
           id,
         },
-      },
+      }
     );
 
     // Check if any rows were updated
@@ -48,6 +48,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// delete job
 router.delete("/:id", async (req, res) => {
   try {
     const job = await Job.destroy({
@@ -55,10 +56,10 @@ router.delete("/:id", async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).json({ message: "Job deleted!"});
+    res.status(200).json({ message: "Job deleted!" });
   } catch (err) {
     console.error(err);
-    res.status(404).json({ message: "Failed to delete job"});
+    res.status(404).json({ message: "Failed to delete job" });
   }
 });
 
