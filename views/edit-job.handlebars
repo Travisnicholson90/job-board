@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 items-center w-3/4 mx-auto my-auto px-2 md:w-4/5 lg:w-2/5">
-  <h2 class="text-4xl font-bold text-indigo-950 my-3">Create Job</h2>
+  <h2 class="text-4xl font-bold text-indigo-950 my-3">Edit Job</h2>
     <!-- Success message -->
 {{#if jobUpdated}}
 <br>
@@ -43,7 +43,7 @@
 <br>
 {{/if}}
   <form
-    id="post-job-form"
+    id="edit-job-form"
     action=""
     data-id="{{jobs.dataValues.id}}"
   >
@@ -145,14 +145,14 @@
       />
       <p id="edit-price-error"></p>
       {{#if jobId}}
-      <input class="absolute hidden" id="jobId" value="{{jobId}}" class="" type="text">
+      <input class="absolute hidden" id="edit-job-id" value="{{jobId}}" class="" type="text">
       {{/if}}
     </div>
     <button
       class="bg-bgBlue my-3 py-3 md:w-3/5 w-3/5 lg:w-2/5 rounded-2xl text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200"
       type="submit"
       role="button"
-    >Post Job</button>
+    >Update Job</button>
   </div>
 </form>
 </div>

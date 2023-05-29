@@ -18,7 +18,7 @@ const editJobForm = async (event) => {
   const editTime = $("#edit-start-time").val();
   const editDuration = $("#edit-duration").val();
   const editPrice = $("#edit-price").val();
-  const jobId = $("#job-id").val();
+  const editJobId = $("#edit-job-id").val();
 
   // make sure that all fields are filled out
   if (editJobName === "") {
@@ -78,7 +78,7 @@ const editJobForm = async (event) => {
   console.log(updateJobData);
 
   // send the object to the database
-  const response = await fetch(`/api/job-post/15`, {
+  const response = await fetch(`/api/myjobs/${editJobId}`, {
     method: "PUT",
     body: JSON.stringify(updateJobData),
     headers: {
@@ -98,83 +98,80 @@ const editJobForm = async (event) => {
   }
 };
 
-$("#post-job-form").submit(editJobForm);
+$("#edit-job-form").submit(editJobForm);
 
 // Create a new job function
 const postJobForm = async (event) => {
   event.preventDefault();
 
-  // IS IT NECESSARY HERE?
-  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const jobName = $("#job-name").val();
-  const jobCategory = $("#job-category").val();
-  const jobDescription = $("#job-description").val();
-  const suburb = $("#suburb").val();
-  const date = $("#date").val();
-  const time = $("#start-time").val();
-  const duration = $("#duration").val();
-  const price = $("#price").val();
+  const postJobName = $("#post-job-name").val();
+  const postJobCategory = $("#post-job-category").val();
+  const postJobDescription = $("#post-job-description").val();
+  const postSuburb = $("#post-suburb").val();
+  const postDate = $("#post-date").val();
+  const postTime = $("#post-start-time").val();
+  const postDuration = $("#post-duration").val();
+  const postPrice = $("#post-price").val();
 
   // make sure that all fields are filled out
-  if (jobName === "") {
+  if (postJobName === "") {
     $("#job-name-error")
       .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
   }
-  if (jobCategory === "") {
+  if (postJobCategory === "") {
     $("#job-category-error")
       .text("Please select a job category!")
       .addClass("text-red-700 italic text-sm");
   }
 
-  if (jobDescription === "") {
+  if (postJobDescription === "") {
     $("#description-error")
       .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
   }
-  if (suburb === "") {
+  if (postSuburb === "") {
     $("#suburb-error")
       .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
   }
-  if (date === "") {
+  if (postDate === "") {
     $("#date-error")
       .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
   }
-  if (time === "") {
+  if (postTime === "") {
     $("#start-time-error")
       .text("Please enter a start time!")
       .addClass("text-red-700 italic text-sm");
   }
-  if (price === "") {
+  if (postPrice === "") {
     $("#price-error")
       .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
   }
-  if (duration === "") {
+  if (postDuration === "") {
     $("#duration-error")
       .text("Please enter your first name!")
       .addClass("text-red-700 italic text-sm");
   }
 
   // create an object to send to the database
-  const jobData = {
-    job_name: jobName,
-    job_description: jobDescription,
-    job_suburb: suburb,
-    job_date: date,
-    job_time: time,
-    job_duration: duration,
-    job_price: price,
-    job_category_id: jobCategory,
+  const postJobData = {
+    job_name: postJobName,
+    job_description: postJobDescription,
+    job_suburb: postSuburb,
+    job_date: postDate,
+    job_time: postTime,
+    job_duration: postDuration,
+    job_price: postPrice,
+    job_category_id: postJobCategory,
   };
 
   // send the object to the database
   const response = await fetch("/api/job-post", {
     method: "POST",
-    body: JSON.stringify(jobData),
+    body: JSON.stringify(postJobData),
     headers: {
       "Content-Type": "application/json",
     },
@@ -310,10 +307,12 @@ const loginForm = async (event) => {
 
 $("#login-form").submit(loginForm);
 
+//delete job function
 const deleteJobs = async (event) => {
   event.preventDefault();
 
-  const deleteJobId = $("#delete-job").val();
+  //delete the job when the delete button is clicked
+  const deleteJobId = $(event.target).find("#delete-job").val();
   console.log(deleteJobId);
 
   const askBeforeDelete = confirm("Are you sure you want to delete this job?");
@@ -321,7 +320,7 @@ const deleteJobs = async (event) => {
     return;
   }
 
-  const response = await fetch(`/api/job-post/${deleteJobId}`, {
+  const response = await fetch(`/api/myjobs/${deleteJobId}`, {
     method: "DELETE",
   });
 
@@ -335,4 +334,6 @@ const deleteJobs = async (event) => {
     window.location.replace("/myjobs");
   }
 };
-$("#delete-job-form").submit(deleteJobs);
+
+$(".delete-job-form").submit(deleteJobs);
+
