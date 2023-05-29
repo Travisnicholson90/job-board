@@ -4,7 +4,7 @@
     {{#if jobs}}
       <table class="table">
         <thead>
-          <tr>
+          <tr class="text-2xl">
             <th>Job Name</th>
             <th>Job Description</th>
             <th>Actions</th>
@@ -16,14 +16,14 @@
               <td class="text-black text-2xl">{{job.dataValues.job_name}}</td>
               <td>{{job.dataValues.job_description}}</td>
               <td>
-                <a href="/edit-job/{{job.dataValues.id}}" class="btn btn-primary">Edit</a>
+                <a href="/edit-job/{{job.dataValues.id}}" class="btn bg-bgBlue text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">Edit</a>
                 <form
                   style="display: inline;"
                   id="delete-job-form"
                   class="delete-job-form"
                 > 
                 <a href="/myjobs">
-                  <button id="delete-job" value="{{job.dataValues.id}}" type="submit" class="btn btn-danger">Delete</button>
+                  <button id="delete-job" value="{{job.dataValues.id}}" type="submit" class="btn bg-red-500 text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-200">Delete</button>
                 </a>
                 </form>
               </td>
