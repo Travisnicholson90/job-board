@@ -16,6 +16,7 @@
               <td class="text-black text-2xl">{{job.dataValues.job_name}}</td>
               <td>{{job.dataValues.job_description}}</td>
               <td>
+                <a href="/view-job/{{job.dataValues.id}}" class="btn bg-bgBlue text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">View</a>
                 <a href="/edit-job/{{job.dataValues.id}}" class="btn bg-bgBlue text-white hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200">Edit</a>
                 <form
                   style="display: inline;"
