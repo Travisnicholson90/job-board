@@ -6,6 +6,16 @@ navToggle.addEventListener("click", () => {
   navbar.classList.toggle("navbar-show");
 });
 
+// Add event listeners to toggle job details visibility
+const toggleButtons = document.querySelectorAll(".btn-toggle-details");
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const details =
+      button.parentElement.previousElementSibling.querySelector(".job-details");
+    details.style.display = details.style.display === "none" ? "block" : "none";
+  });
+});
+
 // Function to update a job added by the user
 const editJobForm = async (event) => {
   event.preventDefault();
