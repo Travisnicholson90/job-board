@@ -86,12 +86,11 @@ const editJobForm = async (event) => {
     },
   });
 
-  // if the response is ok, alert the user and log the response - TODO: redirect to the same page with alert
+  // if the response is ok, redirect to the same page with success alert
   if (response.ok) {
-    alert("Your job has been submitted!");
     console.log("job submitted");
     // Redirect to the same page with a query parameter jobUpdated
-    window.location.replace("/edit-job/?jobUpdated=true");
+    window.location.replace(`/edit-job/${editJobId}?jobUpdated=true`);
   } else {
     alert("Failed to submit job.");
     console.log("job not submitted");
@@ -336,4 +335,3 @@ const deleteJobs = async (event) => {
 };
 
 $(".delete-job-form").submit(deleteJobs);
-
