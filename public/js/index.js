@@ -20,60 +20,55 @@ const editJobForm = async (event) => {
   const editPrice = $("#edit-price").val();
   const editJobId = $("#edit-job-id").val();
 
-  // make sure that all fields are filled out
-  if (editJobName === "") {
-    $("#job-name-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (editJobCategory === "") {
-    $("#job-category-error")
-      .text("Please select a job category!")
-      .addClass("text-red-700 italic text-sm");
-  }
-
-  if (editJobDescription === "") {
-    $("#description-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (editSuburb === "") {
-    $("#suburb-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (editDate === "") {
-    $("#date-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (editTime === "") {
-    $("#start-time-error")
-      .text("Please enter a start time!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (editPrice === "") {
-    $("#price-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
-  }
-  if (editDuration === "") {
-    $("#duration-error")
-      .text("Please enter your first name!")
-      .addClass("text-red-700 italic text-sm");
+  // Check if at least one field is updated
+  if (
+    editJobName === "" &&
+    editJobCategory === "" &&
+    editJobDescription === "" &&
+    editSuburb === "" &&
+    editDate === "" &&
+    editTime === "" &&
+    editDuration === "" &&
+    editPrice === ""
+  ) {
+    alert("Please update at least one field.");
+    return;
   }
 
   // create an object to send to the database
-  const updateJobData = {
-    job_name: editJobName,
-    job_category_id: editJobCategory,
-    job_description: editJobDescription,
-    job_suburb: editSuburb,
-    job_date: editDate,
-    job_time: editTime,
-    job_duration: editDuration,
-    job_price: editPrice,
-  };
+  const updateJobData = {};
+
+  if (editJobName) {
+    updateJobData.job_name = editJobName;
+  }
+
+  if (editJobCategory) {
+    updateJobData.job_category_id = editJobCategory;
+  }
+
+  if (editJobDescription) {
+    updateJobData.job_description = editJobDescription;
+  }
+
+  if (editSuburb) {
+    updateJobData.job_suburb = editSuburb;
+  }
+
+  if (editDate) {
+    updateJobData.job_date = editDate;
+  }
+
+  if (editTime) {
+    updateJobData.job_time = editTime;
+  }
+
+  if (editDuration) {
+    updateJobData.job_duration = editDuration;
+  }
+
+  if (editPrice) {
+    updateJobData.job_price = editPrice;
+  }
 
   console.log(updateJobData);
 
