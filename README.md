@@ -8,6 +8,11 @@ To help ensure user security and privacy, users must be signed in to perform man
 
 Noticed is still in the early stages of development but it has the potential to become the online community hub for the residents of any town it is implemented in. Noticed is designed and created for smaller communities, it strives to be a virtual replacement of the town noticeboard. This way local people will be helping you with your jobs, having an impact on the area which they live and breath, working with and for the people nearest to them. With no unnecassary commutes all over town.
 
+screenshot:
+![Screenshot (32)](https://github.com/Travisnicholson90/job-board/assets/123338043/3db499ce-8848-4051-8b96-3125a9599c92)
+
+URL: https://noticed-job-board.herokuapp.com/
+
 ## License
 
 [![License: MIT License](https://img.shields.io/badge/MIT-License-blue.svg)](https://opensource.org/licenses/MITLicense)
@@ -21,28 +26,25 @@ Noticed is still in the early stages of development but it has the potential to 
 - [Questions](#questions)
 
 ## Installation
-    To run Noticed, you will have to install the follwoing node.js dependencies:
-    1. bcryptjs
-    2. connect-session-sequelize
-    3. dayjs
-    4. dotenv
-    5. express
-    6. express-handlebars
-    7. express-session
-    8. handlebars
-    9. mysql2
-    10. node-cron
-    11. nodemon
-    12. path
-    13. sequelize
 
-    The follwoing devDependencies are also required:
-    1. tailwindcss
+To install and run Noticed, follow these steps:
+
+1. Ensure you have Node.js installed on your system. You can download it from https://nodejs.org.
+
+2. Clone this repository to your local machine using the following command:
+git clone https://github.com/Travisnicholson90/job-board 
+
+3. Navigate to the project directory:
+cd job-board
+
+4. Install the required dependencies using npm:
+npm install
 
 ## Usage
+
 To get Noticed up and running, you must follow these steps:
 1. The depoendencies must be installed, use this command to do so "npm install bcrypt connect-session-sequelize dayjs dotenv express express-handlebars express-session handlebars mysql2 node-cron nodemon path sequelize"
-2. Next, sign into your mysql account in the CLI (command line interfafce), assuming you've already got an account, use the command "mysql -u root -p" and enter your password when prompted.
+2. Next, sign into your mysql account in the CLI (command line interfafce), use the command "mysql -u root -p" and enter your password when prompted.
 3. Create the job_board_db database with the command "source ./schema.sql".
 4. Now quit mysql with the "quit" command.
 5. Now you must seed your database, use this command "node seeds/seed.js"
@@ -50,7 +52,10 @@ To get Noticed up and running, you must follow these steps:
 
 Just proceed to the website (at http://localhost:3001) and enjoy Noticed!
 
+Please note that these instructions assume you have already set up MySQL and have a MySQL account. Adjust the commands accordingly if needed.
+
 ## Contributing
+
 To contribute to the future progess of Noticed and the future development of <town name>'s online community. We can start with some of the following:
 1. Create webpages for each individual job, for users to read a more in-depth description and details of the job.
 2. To provide a means for users to communicate together, e.g. comments, private messages.
@@ -61,6 +66,16 @@ To contribute to the future progess of Noticed and the future development of <to
 ## License
 
 This project is licensed under the MIT License.
+
+## Credits
+
+1. Used Crontab Guru to generate schedule expression:
+https://crontab.guru/every-night-at-midnight
+
+2. Used FreeCodeCamp to learn the methods of scheduling jobs:
+https://www.freecodecamp.org/news/schedule-a-job-in-node-with-nodecron/
+3. Used Medium atricle on using Sequelize operators in queries:
+https://medium.com/@smallbee/make-a-sequelize-query-that-works-like-exact-in-operator-a64ee4817051 
 
 ## Questions
 
