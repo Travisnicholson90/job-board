@@ -67,6 +67,12 @@ To contribute to the future progess of Noticed and the future development of <to
 
 This project is licensed under the MIT License.
 
+## Credits
+
+1. Used Crontab Guru: https://crontab.guru/every-night-at-midnight to generate schedule expression.
+2. Used FreeCodeCamp: https://www.freecodecamp.org/news/schedule-a-job-in-node-with-nodecron/ to learn the methods of scheduling jobs.
+3. Used Medium atricle: https://medium.com/@smallbee/make-a-sequelize-query-that-works-like-exact-in-operator-a64ee4817051 on using Sequelize operators in querries.
+
 ## Questions
 
 For questions or concerns, please contact the developers via github or email: Travisnicholson90 at nicholson_travis@hotmail.com, voi-jankowski at wojtek.wacek.dola@gmail.com, TScarl at tscarlett@live.com.au or Corzah97 at corzah97.dev@gmail.com
