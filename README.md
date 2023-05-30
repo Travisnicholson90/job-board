@@ -71,7 +71,7 @@ This project is licensed under the MIT License.
 
 1. Used Crontab Guru: https://crontab.guru/every-night-at-midnight to generate schedule expression.
 2. Used FreeCodeCamp: https://www.freecodecamp.org/news/schedule-a-job-in-node-with-nodecron/ to learn the methods of scheduling jobs.
-3. Used Medium atricle: https://medium.com/@smallbee/make-a-sequelize-query-that-works-like-exact-in-operator-a64ee4817051 on using Sequelize operators in querries.
+3. Used Medium atricle: https://medium.com/@smallbee/make-a-sequelize-query-that-works-like-exact-in-operator-a64ee4817051 on using Sequelize operators in queries.
 
 ## Questions
 
